@@ -13,9 +13,19 @@
    <ul class="nav nav-tabs">
         <li><%= link_to "Home", welcome_index_path %></li>
         <li><%= link_to "About", welcome_about_path %></li>
+
+        <div class="pull-right user-info">
+           <% if current_user %>
+             Hello <%= current_user.name || current_user.email %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+           <% else %>
+             <%= link_to "Sign In", new_user_session_path %> or
+             <%= link_to "Sign Up", new_user_registration_path %>
+           <% end %>
+         </div>
+
    </ul>  
 
-         <% if flash[:notice] %>
+      <% if flash[:notice] %>
          <div class="alert alert-success">
            <button type="button" class="close" data-dismiss="alert">&times;</button>
            <%= flash[:notice] %>
