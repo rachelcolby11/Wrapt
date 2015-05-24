@@ -1,0 +1,27 @@
+ <%= form_for [@user_profile] do |f| %>
+
+    <div class="form-group">
+      <%= f.label :birthday %>
+      <%= f.text_field :birthday, class: 'form-control', placeholder: "Enter birthday" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :favorite_color %>
+      <%= f.text_field :favorite_color, class: 'form-control', placeholder: "What are your favorite colors?" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :favorite_small_gifts %>
+      <%= f.text_field :favorite_small_gifts, class: 'form-control', placeholder: "Chocolate? Flowers? Fun socks? What small gifts do you most appreciate?" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :desired_gift_cards %>
+      <%= f.text_field :desired_gift_cards, class: 'form-control', placeholder: "What gift cards would you like to receive?" %>
+    </div>      
+    <div class="form-group">
+      <%= f.label "Other notes and preferences" %>
+      <%= f.text_area :notes, rows: 5, class: 'form-control', placeholder: "Please share additional notes and preferences here." %>
+       <i>Please add anything else that might point gift-givers in the right direction. Favorite books? Stores? Do you like wine? Beer? What kind? Remember, the more info you share about what you want, the more likely you are to get it!</i>
+    </div> 
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+    <% end %> 
