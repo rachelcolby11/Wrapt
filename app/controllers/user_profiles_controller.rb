@@ -1,14 +1,12 @@
 class UserProfilesController < ApplicationController
   def new
     @user_profile = UserProfile.new
-    @user_profile.user = @user
   end
 
   def create
-    # @user_profile = UserProfile.new
-    @user_profile = current_user.user_profiles.build(user_profile_params)
-    @user_profile.user = @user
-    # @user =  current_user
+    #UserProfile.new(user_profile_params)
+    @user_profile = current_user.user_profile.build(user_profile_params)
+    @user_profile.user = current_user
      if @user_profile.save
        flash[:notice] = "Your profile was saved."
        redirect_to @user_profile
@@ -19,14 +17,11 @@ class UserProfilesController < ApplicationController
    end
 
   def edit
-    @user_profile.user = @user
     @user_profile = UserProfile.find(params[:id])
   end
 
    def update
-    @user_profile.user = @user
     @user_profile = UserProfile.find(params[:id])
-
     @user_profile.update_attributes(user_profile_params)
     if @user_profile.update_attributes(user_profile_params)
       flash[:notice] = "User information updated"
@@ -39,7 +34,6 @@ class UserProfilesController < ApplicationController
 
   def show
     @user_profile = UserProfile.find(params[:id])
-    @user_profile.user = @user
   end
 
   def destroy
@@ -48,6 +42,6 @@ class UserProfilesController < ApplicationController
   private
  
    def user_profile_params
-     params.require(:user).permit(:name, :birthday, :favorite_color, :favorite_small_gifts, :desired_gift_cards, :notes)
+     params.permit(:name, :birthday, :favorite_color, :favorite_small_gifts, :desired_gift_cards, :notes)
    end
  end
