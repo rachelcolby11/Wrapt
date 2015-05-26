@@ -19,9 +19,9 @@
     <div class="form-group">
       <%= f.label "Other notes and preferences" %>
       <%= f.text_area :notes, rows: 5, class: 'form-control', placeholder: "Please share additional notes and preferences here." %>
-       <i>Please add anything else that might point gift-givers in the right direction. Favorite books? Stores? Do you like wine? Beer? What kind? Remember, the more info you share about what you want, the more likely you are to get it!</i>
+       Please add anything else that might point gift-givers in the right direction. Favorite books? Stores? Do you like wine? Beer? What kind? <br><strong>Remember, the more info you share about what you want, the more likely you are to get it!</strong>
     </div> 
-    <div class="actions">
-      <%= f.submit %>
+    <div class="form-group">
+      <%= f.submit "Save", class: 'btn btn-success' %>
     </div>
     <% end %> 

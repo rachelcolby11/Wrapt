@@ -1,14 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Items</h1>
+<h1></h1>
 
 <table>
   <thead>
     <tr>
       <th>Name</th>
-      <th>Notes</th>
       <th>Size</th>
-      <th>User</th>
+      <th>Notes</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,12 +16,11 @@
     <% @items.each do |item| %>
       <tr>
         <td><%= item.name %></td>
-        <td><%= item.notes %></td>
         <td><%= item.size %></td>
-        <td><%= item.user %></td>
-        <td><%= link_to 'Show', item %></td>
+        <td><%= item.notes %></td>
+        <td><%= link_to 'Details', item %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

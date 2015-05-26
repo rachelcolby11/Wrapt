@@ -1,13 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @item.name %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= @item.notes %>
 </p>
 
 <p>
@@ -16,8 +9,13 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @item.user %>
+  <strong>Notes:</strong>
+  <%= @item.notes %>
+</p>
+
+<p>
+  <strong>For:</strong>
+  <%= @item.user.name %>
 </p>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |

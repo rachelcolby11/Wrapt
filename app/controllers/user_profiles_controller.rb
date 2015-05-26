@@ -4,8 +4,8 @@ class UserProfilesController < ApplicationController
   end
 
   def create
-    #UserProfile.new(user_profile_params)
-    @user_profile = current_user.user_profile.build(user_profile_params)
+    @user_profile = UserProfile.new(user_profile_params)
+    #@user_profile = current_user.user_profile.build(user_profile_params)
     @user_profile.user = current_user
      if @user_profile.save
        flash[:notice] = "Your profile was saved."
@@ -34,6 +34,7 @@ class UserProfilesController < ApplicationController
 
   def show
     @user_profile = UserProfile.find(params[:id])
+    @user = @user_profile.user
   end
 
   def destroy
@@ -42,6 +43,6 @@ class UserProfilesController < ApplicationController
   private
  
    def user_profile_params
-     params.permit(:name, :birthday, :favorite_color, :favorite_small_gifts, :desired_gift_cards, :notes)
+     params.require(:user_profile).permit(:user, :name, :birthday, :favorite_color, :favorite_small_gifts, :desired_gift_cards, :notes)
    end
  end
