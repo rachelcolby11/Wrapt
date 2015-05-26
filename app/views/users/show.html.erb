@@ -1,4 +1,12 @@
-<h1>All Items</h1>
+<h2>My Profile</h2>
+
+<%= render "profile", user: current_user %>
+
+  <br>
+
+    <%= link_to "Edit My Profile", edit_user_profile_path, class: 'btn btn-success' %>
+
+<h3>My Items</h3>
 
 <table class="table">
   <thead>
@@ -10,7 +18,7 @@
   </thead>
 
   <tbody>
-    <% @items.each do |item| %>
+    <% current_user.items.each do |item| %>
       <tr>
         <td><%= link_to "#{item.name}", item %></td>
         <td><%= item.size %></td>

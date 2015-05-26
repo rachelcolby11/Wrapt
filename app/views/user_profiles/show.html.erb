@@ -1,4 +1,4 @@
-<h1><%= @user.name %>'s profile</h1>
+<h1>My Profile</h1>
 
 <p>
   <strong>Birthday:</strong>
@@ -24,6 +24,7 @@
   <strong>Notes:</strong>
   <%= @user_profile.notes %>
 </p>
+<br>
 
 <% if current_user == @user %>
   <%= link_to "Edit My Profile", edit_user_profile_path, class: 'btn btn-success' %>

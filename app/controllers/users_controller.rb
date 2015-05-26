@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-   before_action: authenticate_user!
+   #before_action: authenticate_user!
+  def show
+    @user_profile = current_user.user_profile
+  end
 
   def update
     if current_user.update_attributes(user_params)
@@ -9,6 +12,10 @@ class UsersController < ApplicationController
        flash[:error] = "Invalid user information"
        redirect_to edit_user_registration_path
      end
+   end
+
+   def profile
+    @user = User.find(params[:id])
    end
 
   private

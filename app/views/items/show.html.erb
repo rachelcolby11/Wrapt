@@ -1,7 +1,4 @@
-<p>
-  <strong>Name:</strong>
-  <%= @item.name %>
-</p>
+<h2><%= @item.name %></h2>
 
 <p>
   <strong>Size:</strong>
@@ -18,5 +15,5 @@
   <%= @item.user.name %>
 </p>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<%= link_to "Edit", edit_item_path(@item), class: 'btn-btn success' %> |
+<%= link_to 'Back', items_path, class: 'btn-btn success' %>
