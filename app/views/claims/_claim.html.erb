@@ -1,0 +1,9 @@
+ <div class="claim">
+   <% if item.claim %>
+     Claimed by <%= item.claim.user %>
+   <% else %>
+     <%= link_to [item, Claim.new], class: 'btn btn-success', method: :post do %>
+        <i class="glyphicon glyphicon-ok"> </i>&nbsp; Claim
+       <% end %>
+   <% end %>
+ </div>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :items
+  resources :items do
+    resources :claims, only: [:create, :destroy]
+   end 
   devise_for :users
   resources :users, only: [:update, :show] do 
     get "profile", on: :member  #/users/123/profile

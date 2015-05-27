@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    @item = Item.find(params[:id])
   end
 
   # GET /items/new
@@ -19,13 +20,13 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
+    item = Item.find(params[:id])
   end
 
   # POST /items
   # POST /items.json
   def create
     @item = Item.new(item_params)
-    @item.user = current_user
 
     respond_to do |format|
       if @item.save

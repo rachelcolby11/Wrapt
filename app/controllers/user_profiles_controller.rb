@@ -4,9 +4,7 @@ class UserProfilesController < ApplicationController
   end
 
   def create
-    #@user_profile = UserProfile.new(user_profile_params)
     @user_profile = current_user.build_user_profile(user_profile_params)
-    #@user_profile.user = current_user
      if @user_profile.save
        flash[:notice] = "Your profile was saved."
        redirect_to @user_profile

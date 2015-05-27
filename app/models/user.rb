@@ -6,4 +6,9 @@ class User < ActiveRecord::Base
 
   has_many :items
   has_one :user_profile
+  has_many :claims, dependent: :destroy
+
+  def claimed(item)
+   claims.where(item_id: item.id).first
+  end
 end
