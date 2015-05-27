@@ -15,9 +15,13 @@
   <%= @item.user.name %>
 </p>
 
-<% unless current_user = @item.user %>
-  <%= render partial: 'claims/claim', item: @item  %>
+<% unless current_user == @item.user %>
+  <%= render partial: 'claims/claim', locals: {item: @item, user: current_user } %>
 <% end %>
+<br>
 
-<%= link_to "Edit", edit_item_path(@item), class: 'btn-btn success' %> |
-<%= link_to 'Back', items_path, class: 'btn-btn success' %>
+<% if current_user == @item.user %>
+  <%= link_to "Edit", edit_item_path(@item), class: 'btn-btn success' %> 
+<% end %>
+<!-- | <%#= link_to 'Back', items_path, class: 'btn-btn success' %> Need to change path
+ -->
