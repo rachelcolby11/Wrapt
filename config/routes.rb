@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     get "profile", on: :member  #/users/123/profile
   end
 
+  resources :friendships, only: [:create, :destroy, :index]
+
   resources :user_profiles
 
   get 'welcome/index'

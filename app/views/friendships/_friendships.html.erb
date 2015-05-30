@@ -1,0 +1,17 @@
+<h3>My Friends List</h3>
+<p> The following friends can see your gift list: </p>
+
+<table class = 'table'>
+  <% current_user.buddies.each do |buddy| %>
+  <tr>
+    <td><h5><%= buddy.name %></h5></td>
+    <td>
+      <% friendship = current_user.friendships.where(buddy_id: buddy.id).first %>
+      <%= link_to [friendship], method: :delete, class: 'btn btn-danger' do %><i class="glyphicon glyphicon-remove"> </i>&nbsp; Remove
+      <% end %>
+    </td>  
+  </tr>
+  <% end %>
+
+</table>
+
