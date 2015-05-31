@@ -1,4 +1,16 @@
-<%= render partial: 'form' %>
-<%= render partial: 'friendships', locals: {} %>
-<!-- , locals: { user: @user }
-have list of buddies too -->
+<h1 class="text-center">Manage My Friends</h1>
+
+<br>
+
+<div class="row">
+  <div class="col-md-4"> 
+    <%= render partial: 'friendships' %>
+  </div>
+  <div class="col-md-4">
+    <%= render partial: 'friended_by' %>
+  </div>
+  <div class="col-md-4">  
+    <%= render partial: 'form' %>
+  </div>
+</div> 
+   
