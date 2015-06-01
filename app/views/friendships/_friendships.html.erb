@@ -7,7 +7,7 @@
       <td><h5><%= buddy.name %></h5></td>
       <td>
         <% friendship = current_user.friendships.where(buddy_id: buddy.id).first %>
-        <%= link_to [friendship], method: :delete, class: 'btn btn-danger' do %><i class="glyphicon glyphicon-remove"> </i>&nbsp; Remove
+        <%= link_to [friendship], method: :delete, class: 'btn btn-sm btn-danger' do %><i class="glyphicon glyphicon-remove"> </i>&nbsp; Remove
         <% end %>
       </td>  
     </tr>
