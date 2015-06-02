@@ -1,34 +1,32 @@
 <h2>My Profile</h2>
 
-<%= render "profile", user: current_user %>
+  <%= render "profile", user: current_user %>
 
-  <br>
-
-    <%= link_to "Edit My Profile", edit_user_profile_path, class: 'btn btn-success' %>
+  <%= link_to "Edit My Profile", edit_user_profile_path, class: 'btn btn-success' %>
 
 <h3>My Items</h3>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Size</th>
-      <th>Notes</th>
-</tr>
-  </thead>
-
-  <tbody>
-    <% current_user.items.each do |item| %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= link_to "#{item.name}", item %></td>
-        <td><%= item.size %></td>
-        <td><%= item.notes %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <th>Name</th>
+        <th>Size</th>
+        <th>Notes</th>
+  </tr>
+    </thead>
+
+    <tbody>
+      <% current_user.items.each do |item| %>
+        <tr>
+          <td><%= link_to "#{item.name}", item %></td>
+          <td><%= item.size %></td>
+          <td><%= item.notes %></td>
+          <td><%= link_to 'Edit', edit_item_path(item) %></td>
+          <td><%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 <br>
 

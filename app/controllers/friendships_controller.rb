@@ -8,12 +8,18 @@ class FriendshipsController < ApplicationController
     existing_user = User.find_by_email(params[:email])
 
     if existing_user.nil?
-      flash[:error] = "This person has not joined Wrapt. An invitation to join has been sent to the email you provided."
-      @user_new = User.new(email: :email)
-      redirect_to friendships_path(current_user)
       # this is someone not in the system -> create them and invite them
       # maybe ask for confirmation to send invite.
-      
+      @user_new = User.new(email: :email)
+
+        if @user_new.save
+          flash[:notice] = "This person has not joined Wrapt. An invitation to join will be sent to the email you provided."
+          redirect_to friendships_path(current_user)
+        else
+          flash[:error] = "There was an error. Please try again."
+          redirect_to friendships_path(current_user)
+        end
+
     elsif existing_user.friended_by.include?(current_user)
       # friendship already exists, do not create new friendship
       flash[:error] = "\"#{existing_user.name}\" is already your friend."

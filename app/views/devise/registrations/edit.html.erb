@@ -1,8 +1,9 @@
-<h2>Edit <%= resource_name.to_s.humanize %> Profile and Settings</h2>
-
 <div class="row">
   <div class="col-md-8">
-    <h3>Change email or password</h3>
+
+    <h2 class="text-center">Edit My Account</h2>
+    <br>
+    <h4>Change email or password</h4>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :patch }) do |f| %>
       <%= devise_error_messages! %>
       <div class="form-group">
@@ -33,7 +34,7 @@
       </div>
     <% end %>
 
-    <h3>Edit personal information</h3>
+    <h4>Update personal information</h4>
     <%= form_for(current_user) do |f| %>
       <div class="form-group">
         <%= f.label :name %>

@@ -1,26 +1,31 @@
-<h2><%= @user.name %>'s Profile</h2>
+<h1 class="text-center"><%= @user.name %></h1>
 
-<%= render "profile", user: @user %>
+<h3><%= @user.name %>'s Preferences</h3>
 
- 
-<h3>My Items</h3>
+  <%= render "profile", user: @user %>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Size</th>
-      <th>Notes</th>
-</tr>
-  </thead>
+<h3><%= @user.name %>'s Items</h3>
 
-  <tbody>
-    <% @user.items.each do |item| %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= link_to "#{item.name}", item %></td>
-        <td><%= item.size %></td>
-        <td><%= item.notes %></td>
-    <% end %>
-  </tbody>
-</table>
+        <th>Name</th>
+        <th>Size</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @user.items.each do |item| %>
+        <tr>
+          <td><%= link_to "#{item.name}", item %></td>
+          <td><%= item.size %></td>
+          <td><%= item.notes %></td>
+          <td><% unless current_user == item.user %>
+                <%= render partial: 'claims/claim_short', locals: {item: item, user: current_user } %>
+              <% end %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
