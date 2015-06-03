@@ -19,11 +19,9 @@ class User < ActiveRecord::Base
     Friendship.where(buddy_id: id).collect(&:user)
   end
 
-     after_create :send_email_invite
+  def send_email_invite_from(current_user)
+    InviteMailer.new_invite(current_user, self.email).deliver_now
+  end
+
  
-   private
- 
-   def send_email_invite(user, new_user_email)
-      InviteMailer.new_invite(user, new_user_email).deliver_now
-   end
 end
