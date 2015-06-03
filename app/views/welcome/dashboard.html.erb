@@ -1,0 +1,8 @@
+<div class="text-center">
+  <h1>Welcome to Wrapt!</h1>
+    <h2>My Dashboard</h2>
+
+  <% unless current_user.user_profile %>
+    <h3><%= current_user.name %>, you still need to fill out your profile to help your friends pick great gifts for you! <br><%= link_to "Fill Out My Profile", new_user_profile_path %></h3>
+  <% end %>
+</div>

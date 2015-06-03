@@ -22,6 +22,5 @@ class User < ActiveRecord::Base
   def send_email_invite_from(current_user)
     InviteMailer.new_invite(current_user, self.email).deliver_now
   end
-
  
 end

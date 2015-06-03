@@ -22,5 +22,9 @@
 
 <% if current_user == @item.user %>
   <%= link_to "Edit", edit_item_path(@item), class: 'btn btn-success' %> 
-  <%= link_to "Back to My Profile", user_path(current_user), class: 'btn btn-success' %>
+
+    <% if current_user.user_profile %>
+      <%= link_to "Back to My Profile", user_path(current_user), class: 'btn btn-success' %>
+    <% end %>
+    
 <% end %>
