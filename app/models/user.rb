@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :claims, dependent: :destroy
   has_many :friendships, dependent: :destroy
   has_many :buddies, through: :friendships, class_name: "User", foreign_key: "buddy_id"
+  has_many :exclusions, dependent: :destroy
 
   def claimed(item)
    claims.where(item_id: item.id).first
