@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
   # GET /items/1/edit
   def edit
     item = Item.find(params[:id])
+    @redirect = params[:redirect].present? 
   end
 
   # POST /items
@@ -43,9 +44,10 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
+    place_to_go = params[:redirect].present? ? user_path(current_user) : item_path(@item)
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Your item was successfully updated.' }
+        format.html { redirect_to place_to_go, notice: 'Your item was successfully updated.' }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }

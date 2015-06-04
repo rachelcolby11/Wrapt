@@ -26,4 +26,6 @@
   <div class="form-group">
     <%= f.submit "Save", class: 'btn btn-success' %>
   </div>
+
+  <%= hidden_field_tag(:redirect, true) if @redirect %>
 <% end %>

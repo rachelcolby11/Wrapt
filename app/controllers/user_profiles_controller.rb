@@ -1,7 +1,7 @@
 class UserProfilesController < ApplicationController
   def new
     if current_user.user_profile
-      redirect_to edit_user_profile_path
+      redirect_to edit_user_profile_path(current_user)
       @user_profile = current_user.user_profile
     else
       @user_profile = UserProfile.new

@@ -9,11 +9,12 @@ class FriendshipsController < ApplicationController
 
     if existing_user.nil?
       # this is someone not in the system -> create them and invite them
-      # maybe ask for confirmation to send invite.
       @user_new = User.new(email: params[:email], password: "password")
       @user_new.skip_confirmation!
 
         if @user_new.save
+          @friendship = Friendship.create(user: current_user, buddy: @user_new)
+          
           flash[:notice] = "This person has not joined Wrapt. An invitation to join will be sent to the email you provided."
           @user_new.send_email_invite_from(current_user)
           redirect_to friendships_path(current_user)
