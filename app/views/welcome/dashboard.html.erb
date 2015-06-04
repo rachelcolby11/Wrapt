@@ -5,4 +5,8 @@
   <% unless current_user.user_profile %>
     <h3><%= current_user.name %>, you still need to fill out your profile to help your friends pick great gifts for you! <br><%= link_to "Fill Out My Profile", new_user_profile_path %></h3>
   <% end %>
+  <% unless current_user.user_profile.birthday %>
+      <h4>Don't forget to add your birthday so your friends can plan for it! <br><%= link_to "Update My Profile", edit_user_profile_path %></h4>
+  <% end %>
+  
 </div>
