@@ -6,6 +6,9 @@
       <th>Name</th>
       <th>Size</th>
       <th>Notes</th>
+      <th>Edit Item</th>
+      <th>Delete Item</th>
+      <th>Restrict Viewers</th>
 </tr>
   </thead>
 
@@ -17,6 +20,7 @@
         <td><%= item.notes %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
         <td><%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to restrictions_item_path(item.id), class: 'btn btn-danger' do %><i class="glyphicon glyphicon-eye-close"></i><% end %></td>
       </tr>
     <% end %>
   </tbody>

@@ -15,10 +15,15 @@ class User < ActiveRecord::Base
    claims.where(item_id: item.id).first
   end
 
+  def excluded_from(item)
+    exclusions.where(item_id: item.id).first
+  end
+
   def friended_by
     # This method returns an array of who had added the user as a friend, i.e. whose gift lists the user can see.
     Friendship.where(buddy_id: id).collect(&:user)
   end
+
 
   def send_email_invite_from(current_user)
     InviteMailer.new_invite(current_user, self.email).deliver_now

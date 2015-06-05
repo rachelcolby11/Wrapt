@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :items do
+    get "restrictions", on: :member
     resources :claims, only: [:create, :destroy]
+    resources :exclusions, only: [:create, :destroy]
    end 
   devise_for :users
   resources :users, only: [:update, :show] do 

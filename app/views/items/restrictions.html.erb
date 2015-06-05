@@ -1,0 +1,13 @@
+<br>
+<h3>Update Viewing Permissions for <%= @item.name %></h3>
+<br>
+  <table class='table'>
+  <% current_user.buddies.each do |buddy| %>
+    <tr>
+      <td><h5><%= buddy.name %></h5></td>
+      <td>
+        <%= link_to item_exclusions_path(@item.id), class: 'btn btn-danger' do %><i class="glyphicon glyphicon-eye-close"></i>&nbsp; Restrict
+        <% end %>
+      </td>  
+    </tr>
+  <% end %>
