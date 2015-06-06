@@ -1,37 +1,48 @@
 <h2>My Profile</h2>
-
-  <%= render "profile", user: current_user %>
-
-  <%= link_to "Edit My Profile", edit_user_profile_path, class: 'btn btn-success' %>
-
-<h3>My Items</h3>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Size</th>
-        <th>Notes</th>
-        <th>Edit Item</th>
-        <th>Delete Item</th>
-        <th>Restrict Viewers</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% current_user.items.each do |item| %>
-        <tr>
-          <td><%= link_to "#{item.name}", item %></td>
-          <td><%= item.size %></td>
-          <td><%= item.notes %></td>
-          <td><%= link_to 'Edit', edit_item_path(item, redirect: true) %></td>
-          <td><%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <td><%= link_to restrictions_item_path(item.id), class: 'btn btn-danger' do %><i class="glyphicon glyphicon-eye-close"></i><% end %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
+  <% if current_user.user_profile %>
+      <%= render "profile", user: current_user %>
+      <%= link_to "Edit My Profile", edit_user_profile_path, class: 'btn btn-success' %>
+  <% else %>
+    <br>
+      <h4> You still need to fill out your profile! Help your friends pick great gifts for you! </h4>
+    <br>
+      <%= link_to "Complete My Profile", new_user_profile_path, class: 'btn btn-success' %>
+      <br>
+  <% end %>
 <br>
 
+<% if current_user.items.count >= 1 %>
+  <h3>My Items</h3>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Size</th>
+          <th>Notes</th>
+          <th>Edit Item</th>
+          <th>Delete Item</th>
+          <th>Restrict Viewers</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% current_user.items.each do |item| %>
+          <tr>
+            <td><%= link_to "#{item.name}", item %></td>
+            <td><%= item.size %></td>
+            <td><%= item.notes %></td>
+            <td><%= link_to 'Edit', edit_item_path(item, redirect: true) %></td>
+            <td><%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to restrictions_item_path(item.id), class: 'btn btn-danger' do %><i class="glyphicon glyphicon-eye-close"></i><% end %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+<% else %>
+  <h4>You haven't added any items yet! How will your friends know what to get you?</h4>
+<% end %>  
+
+<br>
 <%= link_to 'New Item', new_item_path, class: 'btn btn-success' %>
