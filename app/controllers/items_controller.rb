@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    @redirect = params[:redirect].present? 
   end
 
   # GET /items/1/edit
@@ -32,7 +33,8 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Your item was successfully created.' }
+        place_to_go = params[:redirect].present? ? user_path(current_user) : item_path(@item)
+        format.html { redirect_to place_to_go, notice: 'Your item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
@@ -59,9 +61,11 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
+    place_to_go = current_user.admin == true ? items_path : user_path(current_user) 
+
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+      format.html { redirect_to place_to_go, notice: 'Item was successfully deleted.' }
       format.json { head :no_content }
     end
   end

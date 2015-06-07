@@ -21,14 +21,16 @@ class UserProfilesController < ApplicationController
 
   def edit
     @user_profile = current_user.user_profile
+    @redirect = params[:redirect].present?
   end
 
    def update
     @user_profile = UserProfile.find(params[:id])
     @user_profile.update_attributes(user_profile_params)
+    place_to_go = params[:redirect].present? ? user_path(current_user) : @user_profile
     if @user_profile.update_attributes(user_profile_params)
       flash[:notice] = "User information updated"
-       redirect_to @user_profile
+       redirect_to place_to_go
      else
        flash[:error] = "Invalid user information"
        redirect_to edit_user_profile_path

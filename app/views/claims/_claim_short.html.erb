@@ -4,7 +4,7 @@
        <% end %>
 
    <% elsif item.claim %>
-    <strong><em>Claimed by <%= item.claim.user.name %></em></strong>
+     <strong><em>Claimed by <%= item.claim.user.name %></em></strong>
 
    <% else %>
      <%= link_to item_claims_path(item), method: :post, class: 'btn btn-sm btn-success' do %>
