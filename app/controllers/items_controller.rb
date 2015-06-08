@@ -5,18 +5,21 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = Item.all
+    authorize @items
   end
 
   # GET /items/1
   # GET /items/1.json
   def show
     @item = Item.find(params[:id])
+    authorize @item
   end
 
   # GET /items/new
   def new
     @item = Item.new
     @redirect = params[:redirect].present? 
+    authorize @item
   end
 
   # GET /items/1/edit
@@ -30,6 +33,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user = current_user
+    authorize @item
 
     respond_to do |format|
       if @item.save
@@ -47,6 +51,8 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1.json
   def update
     place_to_go = params[:redirect].present? ? user_path(current_user) : item_path(@item)
+    authorize @item
+
     respond_to do |format|
       if @item.update(item_params)
         format.html { redirect_to place_to_go, notice: 'Your item was successfully updated.' }
@@ -63,6 +69,8 @@ class ItemsController < ApplicationController
   def destroy
     place_to_go = current_user.admin == true ? items_path : user_path(current_user) 
 
+    authorize @item
+
     @item.destroy
     respond_to do |format|
       format.html { redirect_to place_to_go, notice: 'Item was successfully deleted.' }
@@ -72,6 +80,7 @@ class ItemsController < ApplicationController
 
   def restrictions
     @item = Item.find(params[:id])
+    authorize @item
   end
 
   private
