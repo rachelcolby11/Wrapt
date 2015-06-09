@@ -1,4 +1,9 @@
-<div class="claim">
-  <%= link_to item_exclusions_path(item), method: :post, class: 'btn btn-danger' do %><i class="glyphicon glyphicon-eye-close"></i>&nbsp; Restrict
+<div class="exclusion">
+  <% if item.exclusions.where(user_id: buddy_id) %>
+    <%= link_to item_exclusion_path(item.id, buddy_id), method: :delete, class: 'btn btn-success' do %><i class="glyphicon glyphicon-eye-open"></i>&nbsp; Allow
+    <% end %>
+  <% else %>
+    <%= link_to item_exclusions_path(item, buddy_id), method: :post, class: 'btn btn-danger' do %><i class="glyphicon glyphicon-eye-close"></i>&nbsp; Restrict
+    <% end %>
   <% end %>
 </div>

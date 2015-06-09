@@ -6,7 +6,7 @@
     <tr>
       <td><h5><%= buddy.name %></h5></td>
       <td>
-         <%= render partial: 'exclusions/exclusions', locals: {item: @item, user: current_user } %>
+         <%= render partial: 'exclusions/exclusion', locals: {item: @item, buddy_id: buddy_id } %>
       </td>  
     </tr>
   <% end %>
