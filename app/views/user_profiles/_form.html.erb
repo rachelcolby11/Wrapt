@@ -1,9 +1,10 @@
  <%= form_for @user_profile do |f| %>
 
     <div class="form-group">
-      <%= f.label :birthday %>
-      <%= f.text_field :birthday, class: 'form-control', placeholder: "Enter birthday" %>
-    </div>
+      <%= f.label :birthday %><br>
+      <%= f.date_select :birthdate, discard_year: true %>
+      <% f.submit %>
+    </div>    
     <div class="form-group">
       <%= f.label :favorite_color %>
       <%= f.text_field :favorite_color, class: 'form-control', placeholder: "What are your favorite colors?" %>
@@ -25,4 +26,5 @@
       <%= f.submit "Save", class: 'btn btn-success' %>
     </div>
       <%= hidden_field_tag(:redirect, true) if @redirect %>
-    <% end %> 
+  
+  <% end %> 

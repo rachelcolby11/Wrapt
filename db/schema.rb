@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150604205342) do
+ActiveRecord::Schema.define(version: 20150610074902) do
 
   create_table "claims", force: :cascade do |t|
     t.integer  "user_id"
@@ -59,10 +59,10 @@ ActiveRecord::Schema.define(version: 20150604205342) do
     t.integer  "user_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.string   "birthday"
     t.string   "favorite_color"
     t.string   "favorite_small_gifts"
     t.string   "desired_gift_cards"
+    t.datetime "birthdate"
   end
 
   add_index "user_profiles", ["user_id"], name: "index_user_profiles_on_user_id"

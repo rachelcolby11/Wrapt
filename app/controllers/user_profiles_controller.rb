@@ -53,6 +53,6 @@ class UserProfilesController < ApplicationController
   private
  
    def user_profile_params
-     params.require(:user_profile).permit(:user, :name, :birthday, :favorite_color, :favorite_small_gifts, :desired_gift_cards, :notes)
+     params.require(:user_profile).permit(:user, :name, :birthdate, :favorite_color, :favorite_small_gifts, :desired_gift_cards, :notes)
    end
  end
