@@ -6,10 +6,12 @@ class UserProfilesController < ApplicationController
     else
       @user_profile = UserProfile.new
     end  
+    authorize @user_profile
   end
 
   def create
     @user_profile = current_user.build_user_profile(user_profile_params)
+    authorize @user_profile
      if @user_profile.save
        flash[:notice] = "Your profile was saved."
        redirect_to @user_profile
@@ -21,11 +23,13 @@ class UserProfilesController < ApplicationController
 
   def edit
     @user_profile = current_user.user_profile
+    authorize @user_profile
     @redirect = params[:redirect].present?
   end
 
    def update
     @user_profile = UserProfile.find(params[:id])
+    authorize @user_profile
     @user_profile.update_attributes(user_profile_params)
     place_to_go = params[:redirect].present? ? user_path(current_user) : @user_profile
     if @user_profile.update_attributes(user_profile_params)
@@ -39,6 +43,7 @@ class UserProfilesController < ApplicationController
 
   def show
     @user_profile = UserProfile.find(params[:id])
+    authorize @user_profile
     @user = @user_profile.user
   end
 

@@ -2,6 +2,7 @@ class UsersController < ApplicationController
    #before_action: authenticate_user!
   def show
     @user_profile = current_user.user_profile
+    authorize @user_profile
   end
 
   def update
@@ -16,6 +17,7 @@ class UsersController < ApplicationController
 
    def profile
     @user = User.find(params[:id])
+    authorize @user
    end
 
   private

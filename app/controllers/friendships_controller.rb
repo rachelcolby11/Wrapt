@@ -1,8 +1,4 @@
 class FriendshipsController < ApplicationController
-
-  def index
-    
-  end
   
   def create
     existing_user = User.find_by_email(params[:email])
@@ -14,6 +10,7 @@ class FriendshipsController < ApplicationController
 
         if @user_new.save
           @friendship = Friendship.create(user: current_user, buddy: @user_new)
+          authorize @friendship
           
           flash[:notice] = "This person has not joined Wrapt. An invitation to join will be sent to the email you provided."
           @user_new.send_email_invite_from(current_user)
@@ -31,6 +28,7 @@ class FriendshipsController < ApplicationController
     else
       # create friendship between current_user and existing_user
       @friendship = Friendship.new(user: current_user, buddy: existing_user)
+      authorize @friendship
 
         if @friendship.save
           flash[:notice] = "Your friends list was updated."
@@ -45,6 +43,7 @@ class FriendshipsController < ApplicationController
 
   def destroy
     @friendship = Friendship.find(params[:id])
+    authorize @friendship
     if @friendship.destroy
       flash[:notice] = "\"#{@friendship.buddy.name}\" was removed from your friends list."
       redirect_to friendships_path(current_user)

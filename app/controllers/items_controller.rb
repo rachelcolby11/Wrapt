@@ -26,6 +26,7 @@ class ItemsController < ApplicationController
   def edit
     item = Item.find(params[:id])
     @redirect = params[:redirect].present? 
+    authorize item
   end
 
   # POST /items

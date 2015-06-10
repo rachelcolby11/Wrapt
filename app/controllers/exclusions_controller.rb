@@ -4,6 +4,7 @@ class ExclusionsController < ApplicationController
    @item = Item.find(params[:item_id])
    @buddy = current_user.buddies.find(params[:buddy_id])
    @exclusion = Exclusion.new(user_id: @buddy.id, item: @item) 
+   authorize @exclusion
    
    if @exclusion.save 
      flash[:notice] = "You have restricted \"#{@buddy.name}\" from viewing \"#{@item.name}\""         
@@ -18,6 +19,7 @@ class ExclusionsController < ApplicationController
    @item = Item.find(params[:item_id])
    @buddy = current_user.buddies.find(params[:buddy_id])
    @exclusion = Exclusion.where(user_id: @buddy.id, item: @item).first
+   authorize @exclusion
    
    if @exclusion.destroy 
      flash[:notice] = "\"#{@buddy.name}\" can now view \"#{@item.name}\""         
@@ -27,5 +29,10 @@ class ExclusionsController < ApplicationController
 
    redirect_to restrictions_item_path(@item)
   end
-
+  
+  private
+ 
+   def exclusion_params
+     params.require(:exclusion).permit(:item_id, :buddy_id, :user_id)
+   end
 end

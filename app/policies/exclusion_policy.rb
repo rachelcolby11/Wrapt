@@ -1,0 +1,3 @@
+class ExclusionPolicy < ApplicationPolicy
+
+end
