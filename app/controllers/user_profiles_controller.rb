@@ -33,7 +33,7 @@ class UserProfilesController < ApplicationController
     @user_profile.update_attributes(user_profile_params)
     place_to_go = params[:redirect].present? ? user_path(current_user) : @user_profile
     if @user_profile.update_attributes(user_profile_params)
-      flash[:notice] = "User information updated"
+      flash[:notice] = "Your profile has been updated."
        redirect_to place_to_go
      else
        flash[:error] = "Invalid user information"

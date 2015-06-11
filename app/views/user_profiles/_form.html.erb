@@ -2,7 +2,7 @@
 
     <div class="form-group">
       <%= f.label :birthday %><br>
-      <%= f.date_select :birthdate, discard_year: true %>
+      <%= f.date_select :birthdate, order: [:month, :day, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, discard_year: true %>
       <% f.submit %>
     </div>    
     <div class="form-group">

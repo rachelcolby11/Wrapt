@@ -1,6 +1,11 @@
  <p>
+    
     <strong>Birthday:</strong>
-    <%= user.user_profile.birthdate %>
+      <% if user.user_profile.birthdate %>
+        <%= user.user_profile.birthdate.strftime("%B %d") %>
+      <% else %>
+        Not given
+      <% end %>
   </p>
 
   <p>
