@@ -24,10 +24,12 @@
 
   <%= link_to 'Edit', edit_item_path(@item), class: 'btn btn-success' %> 
   <%= link_to 'Delete', @item, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' }  %>
-  <%= link_to restrictions_item_path(@item.id), class: 'btn btn-danger' do %><i class="glyphicon glyphicon-eye-close"></i>&nbsp; Restrict<% end %>
+  <br><br>
+  <%= link_to restrictions_item_path(@item.id), class: 'btn btn-danger' do %><i class="glyphicon glyphicon-eye-close"></i>&nbsp; Restrict Viewing Permissions <% end %>
 
+  <br><br>
     <% if current_user.user_profile %>
-      <%= link_to "Back to Profile", user_path(current_user), class: 'btn btn-success' %>
+      <%= link_to "Back to My Profile", user_path(current_user), class: 'btn btn-primary' %>
     <% end %>
     
 <% end %>

@@ -5,7 +5,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def profile?
-    user.present? && ((record.user == user) || user.admin? || (record.user.buddies.include? user))
+    user.present?
   end
 
 end

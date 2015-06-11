@@ -7,9 +7,9 @@
     <h4><%= current_user.name %>, you still need to fill out your profile to help your friends pick great gifts for you! <br><br><%= link_to "Fill Out My Profile", new_user_profile_path %></h4>
 
   <% else %>
-      <% if current_user.user_profile.birthday.nil? %>
+      <% if current_user.user_profile.birthdate.nil? %>
         <h4>Don't forget to add your birthday so your friends can plan for it! 
-          <br><%= link_to "Update My Profile", edit_user_profile_path %></h4>
+          <br><%= link_to "Update My Profile", edit_user_profile_path(current_user) %></h4>
        <% end %>
       <h3><%= link_to "View My Profile", new_user_profile_path %></h3>
 

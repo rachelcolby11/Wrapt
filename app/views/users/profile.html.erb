@@ -23,14 +23,16 @@
 
     <tbody>
       <% @user.items.each do |item| %>
-        <tr>
-          <td><%= link_to "#{item.name}", item %></td>
-          <td><%= item.size %></td>
-          <td><%= item.notes %></td>
-          <td><% unless current_user == item.user %>
+        <% unless current_user.exclusions.include?(@exclusion) %>
+          <tr>
+            <td><%= link_to "#{item.name}", item %></td>
+            <td><%= item.size %></td>
+            <td><%= item.notes %></td>
+            <td><% unless current_user == item.user %>
                 <%= render partial: 'claims/claim_short', locals: {item: item, user: current_user } %>
-              <% end %></td>
-        </tr>
+                <% end %></td>
+           </tr>     
+        <% end %>    
       <% end %>
     </tbody>
   </table>

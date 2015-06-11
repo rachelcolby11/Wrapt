@@ -7,7 +7,7 @@ class ExclusionsController < ApplicationController
    authorize @exclusion
    
    if @exclusion.save 
-     flash[:notice] = "You have restricted \"#{@buddy.name}\" from viewing \"#{@item.name}\""         
+     flash[:notice] = "You have restricted \"#{@buddy.name}\" from viewing \"#{@item.name}\"."         
    else
      flash[:error] = "There was an error. Please try again."
    end
@@ -17,12 +17,12 @@ class ExclusionsController < ApplicationController
 
   def destroy
    @item = Item.find(params[:item_id])
-   @buddy = current_user.buddies.find(params[:buddy_id])
-   @exclusion = Exclusion.where(user_id: @buddy.id, item: @item).first
+   @exclusion = Exclusion.find(params[:id])
+   @buddy = current_user.buddies.find(@exclusion.user_id)
    authorize @exclusion
    
    if @exclusion.destroy 
-     flash[:notice] = "\"#{@buddy.name}\" can now view \"#{@item.name}\""         
+     flash[:notice] = "\"#{@buddy.name}\" can now view \"#{@item.name}\"."         
    else
      flash[:error] = "There was an error. Please try again."
    end
