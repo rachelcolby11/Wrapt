@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
    claims.where(item_id: item.id).first
   end
 
-  def excluded_from(item)
+  def excluded_from?(item)
     exclusions.where(item_id: item.id).first
   end
 

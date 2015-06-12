@@ -23,7 +23,7 @@
 
     <tbody>
       <% @user.items.each do |item| %>
-        <% unless current_user.exclusions.include?(@exclusion) %>
+        <% unless current_user.excluded_from?(item) %>
           <tr>
             <td><%= link_to "#{item.name}", item %></td>
             <td><%= item.size %></td>

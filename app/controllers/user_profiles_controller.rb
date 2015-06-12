@@ -47,9 +47,6 @@ class UserProfilesController < ApplicationController
     @user = @user_profile.user
   end
 
-  def destroy
-  end
-
   private
  
    def user_profile_params
