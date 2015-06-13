@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:edit, :update, :destroy]
 
   # GET /items
   # GET /items.json
@@ -8,17 +8,9 @@ class ItemsController < ApplicationController
     authorize @items
   end
 
-  # GET /items/1
-  # GET /items/1.json
-  def show
-    @item = Item.find(params[:id])
-    authorize @item
-  end
-
   # GET /items/new
   def new
     @item = Item.new
-    @redirect = params[:redirect].present? 
     authorize @item
   end
 
@@ -38,8 +30,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        place_to_go = params[:redirect].present? ? user_path(current_user) : item_path(@item)
-        format.html { redirect_to place_to_go, notice: 'Your item was successfully created.' }
+        format.html { redirect_to user_path(current_user), notice: 'Your item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
@@ -51,7 +42,7 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
-    place_to_go = params[:redirect].present? ? user_path(current_user) : item_path(@item)
+    place_to_go = params[:redirect].present? ? user_path(current_user) : items_path
     authorize @item
 
     respond_to do |format|
@@ -68,13 +59,11 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
-    place_to_go = current_user.admin == true ? items_path : user_path(current_user) 
-
     authorize @item
 
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to place_to_go, notice: 'Item was successfully deleted.' }
+      format.html { redirect_to (:back), notice: 'Item was successfully deleted.' }
       format.json { head :no_content }
     end
   end
