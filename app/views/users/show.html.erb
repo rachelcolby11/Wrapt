@@ -1,7 +1,7 @@
 <h2>My Profile</h2>
   <% if current_user.user_profile %>
       <%= render "profile", user: current_user %>
-      <%= link_to "Edit My Profile", edit_user_profile_path(current_user, redirect: true), class: 'btn btn-success' %>
+      <%= link_to "Edit My Profile", edit_user_profile_path(current_user), class: 'btn btn-success' %>
   <% else %>
     <br>
       <h4> You still need to fill out your profile! Help your friends pick great gifts for you! </h4>

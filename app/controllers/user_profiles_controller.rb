@@ -14,7 +14,7 @@ class UserProfilesController < ApplicationController
     authorize @user_profile
      if @user_profile.save
        flash[:notice] = "Your profile was saved."
-       redirect_to @user_profile
+       redirect_to user_path(current_user)
      else
        flash[:error] = "There was an error. Please try again."
        render :new
@@ -24,28 +24,20 @@ class UserProfilesController < ApplicationController
   def edit
     @user_profile = current_user.user_profile
     authorize @user_profile
-    @redirect = params[:redirect].present?
   end
 
    def update
     @user_profile = UserProfile.find(params[:id])
     authorize @user_profile
     @user_profile.update_attributes(user_profile_params)
-    place_to_go = params[:redirect].present? ? user_path(current_user) : @user_profile
     if @user_profile.update_attributes(user_profile_params)
       flash[:notice] = "Your profile has been updated."
-       redirect_to place_to_go
+       redirect_to user_path(current_user)
      else
        flash[:error] = "Invalid user information"
        redirect_to edit_user_profile_path
     end 
    end
-
-  def show
-    @user_profile = UserProfile.find(params[:id])
-    authorize @user_profile
-    @user = @user_profile.user
-  end
 
   private
  
