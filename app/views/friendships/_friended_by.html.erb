@@ -6,7 +6,7 @@
   <table class = 'table'>
     <% current_user.friended_by.each do |friend| %>
       <tr>
-        <td><h5><%= friend.name %></h5></td>
+        <td><h5><%= link_to "#{friend.name}", profile_user_path(friend) %></h5></td>
         <td>
           <% my_friendships = Friendship.where(buddy_id=current_user.id) %>
           <!--   my_friendships is an array of all the all of the friendships where a user shared their gift list with the current user. -->
