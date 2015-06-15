@@ -30,7 +30,7 @@
       <tbody>
         <% current_user.items.each do |item| %>
           <tr>
-            <td><%= link_to "#{item.name}", item %></td>
+            <td><%= item.name %></td>
             <td><%= item.size %></td>
             <td><%= item.notes %></td>
 

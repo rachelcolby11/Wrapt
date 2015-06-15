@@ -1,0 +1,8 @@
+<h4>Upcoming Birthdays</h4>
+
+<ul>
+  <% user.buddies.each do |buddy| %>
+    <li><%= UserProfile.where(user: buddy).birthdate %></li>
+  <% end %>
+</ul>
+

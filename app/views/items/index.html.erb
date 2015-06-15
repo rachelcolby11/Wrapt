@@ -9,13 +9,13 @@
       <th>Edit Item</th>
       <th>Delete Item</th>
       <th>Restrict Viewers</th>
-</tr>
+    </tr>
   </thead>
 
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= link_to "#{item.name}", item %></td>
+        <td><%= item.name %></td>
         <td><%= item.size %></td>
         <td><%= item.notes %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>

@@ -14,5 +14,15 @@
       <h3><%= link_to "Update My Profile", edit_user_profile_path(current_user) %></h3>
 
   <% end %>
-  
+
+</div>  
+
+<div class="row">
+  <div class="col-md-4">
+    <%= render partial: 'users/birthdays', locals: { user: current_user } %>
+  </div>
+
+  <div class="col-md-4">
+    <%= render partial: 'users/shopping_list', locals: { user: current_user } %>
+  </div>
 </div>

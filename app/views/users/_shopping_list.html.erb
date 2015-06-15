@@ -1,0 +1,20 @@
+<h4>My Shopping List</h4>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Size</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% user.claimed_items.each do |item| %>
+          <tr>
+              <td><%= item.name %></td>
+              <td><%= item.size %></td>
+              <td><%= item.notes %></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>

@@ -25,7 +25,7 @@
       <% @user.items.each do |item| %>
         <% unless current_user.excluded_from?(item) %>
           <tr>
-            <td><%= link_to "#{item.name}", item %></td>
+            <td><%= item.name %></td>
             <td><%= item.size %></td>
             <td><%= item.notes %></td>
             <td><% unless current_user == item.user %>

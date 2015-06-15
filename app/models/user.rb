@@ -15,8 +15,8 @@ class User < ActiveRecord::Base
     admin == true
   end
 
-  def claimed(item)
-   claims.where(item_id: item.id).first
+  def claimed_items
+    claims.collect(&:item)
   end
 
   def excluded_from?(item)
@@ -31,5 +31,9 @@ class User < ActiveRecord::Base
   def send_email_invite_from(current_user)
     InviteMailer.new_invite(current_user, self.email).deliver_now
   end
- 
+
+  def birthdays
+    buddies.userprofiles.collect(&:birthdate)
+  end
+
 end
