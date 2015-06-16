@@ -38,8 +38,8 @@ class User < ActiveRecord::Base
     buddies.user_profiles.collect(&:birthdate)
   end
 
-  def upcoming_birthday_buddies
-    buddies.collect {|buddy| buddy.user_profile && buddy.user_profile.birthdate && (buddy.user_profile.next_birthday >= Date.today && buddy.user_profile.next_birthday <= (Date.today + 3.months)) }
+  def upcoming_birthday_friends
+    friended_by.collect {|friend| friend.user_profile && friend.user_profile.birthdate && (friend.user_profile.next_birthday >= Date.today && friend.user_profile.next_birthday <= (Date.today + 3.months)) }
   end
 
 end

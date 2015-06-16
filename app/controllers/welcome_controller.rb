@@ -8,7 +8,7 @@ class WelcomeController < ApplicationController
   end
 
   def dashboard
-    @upcoming_birthdays = current_user.upcoming_birthday_buddies
+    @upcoming_birthdays = current_user.upcoming_birthday_friends
   end
 
 end
