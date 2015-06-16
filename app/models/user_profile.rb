@@ -1,9 +1,10 @@
 class UserProfile < ActiveRecord::Base
   belongs_to :user
 
-  def birthdate_month_day
+  def next_birthday
     year = Date.today.year
-    year += 1 if Date.today.month > 10
-    Date.new(Date.today.year, birthdate.month, birthdate.day) if birthdate
+    year += 1 if Date.today.month >= 10
+    Date.new(year, birthdate.month, birthdate.day) if birthdate
   end
+
 end

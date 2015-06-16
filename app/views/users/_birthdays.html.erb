@@ -1,10 +1,18 @@
 <h4>Upcoming Birthdays</h4>
 
-<ul>
-  <% user.buddies.each do |buddy| %>
-    <% if buddy.user_profile %>
-      <li><%= buddy.user_profile.birthdate %></li>
-    <% end %>
-  <% end %>
-</ul>
-
+<% if upcoming_birthdays %>
+  <table class="table">
+    <tbody>
+      <% upcoming_birthdays.each do |buddy| %>
+        <% #if buddy %>
+          <tr>
+              <td><%= buddy.user_profile.birthdate.strftime("%B %d") %></td>
+              <td><%= buddy.name %></td>
+          </tr>
+        <% #end %>
+      <% end %>
+    </tbody>
+  </table>
+ <% else %>
+  <p>*Phew* - you're safe! None of your friends have birthdays coming up in the next 3 months!</p> 
+ <% end %> 

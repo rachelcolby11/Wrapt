@@ -19,7 +19,7 @@
 
 <div class="row">
   <div class="col-md-4">
-    <%= render partial: 'users/birthdays', locals: { user: current_user } %>
+    <%= render partial: 'users/birthdays', locals: { user: current_user, upcoming_birthdays: @upcoming_birthdays } %>
   </div>
 
   <div class="col-md-4">
