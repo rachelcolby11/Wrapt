@@ -13,6 +13,10 @@ Rails.application.routes.draw do
 
   resources :user_profiles
 
+  namespace :admin do
+    resources :users
+  end
+
   get 'welcome/index'
   get 'welcome/about'
   get 'welcome/dashboard'

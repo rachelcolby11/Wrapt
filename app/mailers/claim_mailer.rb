@@ -12,7 +12,7 @@ class ClaimMailer < ApplicationMailer
      @item = claim.item
      @friend = @item.user
  
-     mail(to: user.email, subject: "Gift reminder from Wrapt!")
+     mail(to: @user.email, subject: "Gift reminder from Wrapt!")
    end
 
 end

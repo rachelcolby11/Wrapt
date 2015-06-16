@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_many :buddies, through: :friendships, class_name: "User", foreign_key: "buddy_id"
   has_many :exclusions, dependent: :destroy
 
+  validates_presence_of :name
+
   def admin?
     admin == true
   end
@@ -33,7 +35,11 @@ class User < ActiveRecord::Base
   end
 
   def birthdays
-    buddies.userprofiles.collect(&:birthdate)
+    buddies.user_profiles.collect(&:birthdate)
+  end
+
+  def upcoming_birthday_buddies
+    buddies.collect {|buddy| buddy.user_profile && buddy.user_profile.birthdate && (buddy.user_profile.birthdate_month_year >= Date.today &&  buddy.user_profile.birthdate_month_year <= Date.today + 3.months) }
   end
 
 end
