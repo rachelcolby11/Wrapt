@@ -1,18 +1,19 @@
 <h4>Upcoming Birthdays</h4>
 
-<% #if upcoming_birthdays %>
+<% if upcoming_birthdays.any? %>
   <table class="table">
     <tbody>
       <% upcoming_birthdays.each do |friend| %>
         <% if friend %>
           <tr>
-              <td><%= friend.user_profile.birthdate.strftime("%B %d") %></td>
               <td><%= friend.name %></td>
+              <td><%= friend.user_profile.birthdate %></td>
+              <td><%= friend.user_profile.birthdate.strftime("%B %d") %></td>
           </tr>
         <% end %>
       <% end %>
     </tbody>
   </table>
- <% #else %>
+ <% else %>
   <p>*Phew* - you're safe! None of your friends have birthdays coming up in the next 3 months!</p> 
- <% #end %> 
+ <% end %> 

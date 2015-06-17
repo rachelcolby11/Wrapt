@@ -34,12 +34,34 @@ class User < ActiveRecord::Base
     InviteMailer.new_invite(current_user, self.email).deliver_now
   end
 
-  def birthdays
-    buddies.user_profiles.collect(&:birthdate)
+  def birthday_upcoming?
+    if user_profile.birthdate.nil?
+      false
+    elsif user_profile && user_profile.birthdate && (user_profile.next_birthday >= Date.today.to_date) && (user_profile.next_birthday <= (Date.today.to_date + 3.months))
+      true
+    else
+      false
+    end
   end
 
-  def upcoming_birthday_friends
-    friended_by.collect {|friend| friend.user_profile && friend.user_profile.birthdate && (friend.user_profile.next_birthday >= Date.today && friend.user_profile.next_birthday <= (Date.today + 3.months)) }
+ def upcoming_birthday_friends
+    friends = []
+    friended_by.each do |friend|
+      if friend.birthday_upcoming?
+        [] << friend
+      end 
+    end
+    friends
   end
+  # def upcoming_birthday_friends
+  #   friends = []
+  #   friended_by.each do |friend|
+  #     if (friend.user_profile && friend.user_profile.birthdate && (friend.user_profile.next_birthday >= Date.today && friend.user_profile.next_birthday <= (Date.today + 3.months))) && friend.user_profile.birthdate != nil
+  #       [] << friend
+  #      end 
+  #     friends
+  #   end
+
+
 
 end

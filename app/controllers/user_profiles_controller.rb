@@ -27,7 +27,8 @@ class UserProfilesController < ApplicationController
   end
 
    def update
-    current_user.user_profile.update_attributes(user_profile_params)
+    @user_profile = current_user.user_profile
+    authorize @user_profile
     if @user_profile.update_attributes(user_profile_params)
       flash[:notice] = "Your profile has been updated."
        redirect_to user_path(current_user)
