@@ -1,46 +1,15 @@
 <h1 class="text-center"><%= @user.name %></h1>
 
-<h3><%= @user.name %>'s Preferences</h3>
   <% if @user.user_profile %>
     <%= render "profile", user: @user %>
+
   <% else %>
     <br>
-    <h4>This user still needs to fill out their profile! You should definitely nag them about it next time you see them!</h4>
+      <h4>This user still needs to fill out their profile! You should definitely nag them about it next time you see them!</h4>
     <br>
   <% end %>
 
 <h3><%= @user.name %>'s Items</h3>
 
-  <% if @user.items.count >= 1 %>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Size</th>
-        <th>Notes</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @user.items.each do |item| %>
-        <% unless current_user.excluded_from?(item) %>
-          <tr>
-            <td><%= item.name %></td>
-            <td><%= item.size %></td>
-            <td><%= item.notes %></td>
-            <td><% unless current_user == item.user %>
-                <%= render partial: 'claims/claim_short', locals: {item: item, user: current_user } %>
-                <% end %></td>
-           </tr>     
-        <% end %>    
-      <% end %>
-    </tbody>
-  </table>
-
-  <% else %>
-    <br>
-      <h4>Booo... this user hasn't added any items yet.</h4>
-    <br>
-  <% end %>
-
+  <%= render partial: 'items/items', locals: {user: @user } %>
 

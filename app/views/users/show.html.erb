@@ -12,39 +12,5 @@
 <br>
 <br>
 
-<% if current_user.items.count >= 1 %>
-  <h3>My Items</h3>
-
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Size</th>
-          <th>Notes</th>
-          <th>Edit Item</th>
-          <th>Delete Item</th>
-          <th>Restrict Viewers</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% current_user.items.each do |item| %>
-          <tr>
-            <td><%= item.name %></td>
-            <td><%= item.size %></td>
-            <td><%= item.notes %></td>
-
-            <td><%= link_to 'Edit', edit_item_path(item, redirect: true) %></td>
-            <td><%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <td><%= link_to restrictions_item_path(item.id), class: 'btn btn-danger' do %><i class="glyphicon glyphicon-eye-close"></i><% end %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
-<% else %>
-  <h4>You haven't added any items yet! How will your friends know what to get you?</h4>
-<% end %>  
-
-<br>
-<%= link_to 'New Item', new_item_path(redirect: true), class: 'btn btn-success' %>
+<h3>My Items</h3>
+  <%= render "items/items", user: current_user %>

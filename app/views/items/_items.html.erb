@@ -1,0 +1,53 @@
+<% if user.items.count >= 1 %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Size</th>
+        <th>Notes</th>
+
+        <% if user == current_user || current_user.admin? %> 
+          <th>Edit Item</th>
+          <th>Delete Item</th>
+          <th>Restrict Viewers</th>
+        <% end %>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% user.items.each do |item| %>
+        <% unless user.excluded_from?(item) %>
+
+          <tr>
+            <td><%= item.name %></td>
+            <td><%= item.size %></td>
+            <td><%= item.notes %></td>
+
+            <% if current_user == item.user || current_user.admin? %>
+              <td><%= link_to 'Edit', edit_item_path(item, redirect: true) %></td>
+              <td><%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to restrictions_item_path(item.id), class: 'btn btn-danger' do %><i class="glyphicon glyphicon-eye-close"></i><% end %></td>
+
+            <% else %>
+              <td><%= render partial: 'claims/claim_short', locals: {item: item, user: current_user } %></td>
+            <% end %>
+           </tr>  
+
+        <% end %> 
+      <% end %>
+    </tbody>
+  </table>
+
+<% else %>
+  <br>
+    <% if user == current_user %>
+      <h4>You haven't added any items yet! How will your friends know what to get you?</h4>
+    <% else %>
+      <h4>Booo... this user hasn't added any items yet.</h4>
+    <% end %>
+  <br>
+<% end %>
+
+<% if user == current_user || user.admin? %>
+  <%= link_to 'New Item', new_item_path(redirect: true), class: 'btn btn-success' %>
+<% end %>
