@@ -1,6 +1,5 @@
 <div class="text-center">
   <h1>Welcome to Wrapt!</h1>
-    <h2>My Dashboard</h2>
   <br>
 
   <% unless current_user.user_profile %>
@@ -11,18 +10,18 @@
         <h4>Don't forget to add your birthday so your friends can plan for it! 
           <br><%= link_to "Update My Profile", edit_user_profile_path(current_user) %></h4>
        <% end %>
-      <h3><%= link_to "Update My Profile", edit_user_profile_path(current_user) %></h3>
-
   <% end %>
 
 </div>  
 
-<div class="row">
-  <div class="col-md-4">
+  <div class="col-md-3">
     <%= render partial: 'users/birthdays', locals: { user: current_user, upcoming_birthdays: @upcoming_birthdays } %>
   </div>
 
-  <div class="col-md-4">
+  <div class="col-md-6">
     <%= render partial: 'users/shopping_list', locals: { user: current_user } %>
   </div>
-</div>
+
+  <div class="col-md-3">
+    <%= render partial: 'friendships/friended_by', locals: { user: current_user } %>
+  </div>

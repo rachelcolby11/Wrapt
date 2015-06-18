@@ -1,15 +1,14 @@
 <div class="text-center">
-<h3>Add a Friend!</h3>
+  <h2>Add a Friend!</h2>
+    <h5>It's easy to share your gift list and profile with a friend. Just enter their email here!</h5>
 
-<%= form_for(Friendship.new) do |f| %>
-  <div class="form-group">
-    <label>Friend's email:</label><br>
-    <%= text_field_tag :email %>
-  </div>
+  <%= form_for(Friendship.new) do |f| %>
+    <div class="form-group">
+      <%= text_field_tag :email %>
+      <%= f.submit "Add", class: 'btn btn-sm btn-success' %>
+    </div>
+  <% end %>
 
-  <div class="form-group">
-    <%= f.submit "Add", class: 'btn btn-success' %>
-  </div>
-  <p>Friends you add here will be able to see your gift list. If you would like to see someone's gift list, ask them to add you as a friend.</p>
-<% end %>
+  <p>Friends you add can see your gift list and profile. If you want to see someone's gift list, ask them to add you as a friend.</p>
+
 </div>

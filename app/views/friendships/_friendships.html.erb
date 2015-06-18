@@ -1,16 +1,17 @@
 <% if current_user.buddies.count >= 1 %>
-  <h4 class="text-center"> These friends can see your gift list: </h4>
+  <h5 class="text-center"> These friends can see your gift list and profile. </h5>
 
   <table class = 'table'>
     <% current_user.buddies.each do |buddy| %>
-    <tr>
-      <td><h5><%= buddy.name %></h5></td>
-      <td>
-        <% friendship = current_user.friendships.where(buddy_id: buddy.id).first %>
-        <%= link_to [friendship], method: :delete, class: 'btn btn-sm btn-danger' do %><i class="glyphicon glyphicon-remove"> </i>&nbsp; Remove
-        <% end %>
-      </td>  
-    </tr>
+      <tr>
+        <td><h5><%= buddy.name %></h5></td>
+        <td>
+          <% friendship = current_user.friendships.where(buddy_id: buddy.id).first %>
+          <div class = "pull-right">
+            <%= link_to [friendship], method: :delete, class: 'btn btn-sm btn-danger' do %><i class="glyphicon glyphicon-remove"> </i>&nbsp; Remove<% end %>
+          </div>
+        </td>  
+      </tr>
     <% end %>
 
   </table>

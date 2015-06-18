@@ -1,5 +1,6 @@
-<h4>My Shopping List</h4>
-
+<h4 class="text-center">My Shopping List</h4>
+<br>
+<% if user.claimed_items.count >= 1 %>
   <table class="table">
     <thead>
       <tr>
@@ -14,7 +15,11 @@
               <td><%= item.name %></td>
               <td><%= item.size %></td>
               <td><%= item.notes %></td>
+              <td><%= render partial: 'claims/claim_short', locals: {item: item, user: user } %></td>
           </tr>
       <% end %>
     </tbody>
   </table>
+<% else %>
+  <p>You don't have any claimed items.</p>
+<% end %>
