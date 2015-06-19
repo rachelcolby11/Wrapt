@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
+    @redirect = params[:redirect].present? 
     @item = Item.new
     authorize @item
   end
@@ -26,10 +27,11 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.user = current_user
     authorize @item
+    place_to_go = params[:redirect].present? ? user_path(current_user) : items_path
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to user_path(current_user), notice: 'Your item was successfully created.' }
+        format.html { redirect_to place_to_go, notice: 'Your item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }

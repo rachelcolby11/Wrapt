@@ -1,15 +1,23 @@
 <br>
   <h3>Update Viewing Permissions for <%= @item.name %></h3>
 <br>
-  <table class='table'>
-  <% current_user.buddies.each do |buddy| %>
-    <tr>
-      <td><h5><%= buddy.name %></h5></td>
-      <td>
-         <%= render partial: 'exclusions/exclusion', locals: { item: @item, buddy_id: buddy.id } %>
-      </td>  
-    </tr>
-  <% end %>
-</table>
+
+  <% if current_user.buddies.count >= 1 %>
+    <table class='table'>
+      <% current_user.buddies.each do |buddy| %>
+        <tr>
+          <td><h5><%= buddy.name %></h5></td>
+          <td>
+             <%= render partial: 'exclusions/exclusion', locals: { item: @item, buddy_id: buddy.id } %>
+          </td>  
+        </tr>
+      <% end %>
+    </table>
+
+   <% else %>
+      <h5>You haven't shared your gift list with anyone, so right now nodody can see this item.</h5>
+    <br>
+      <%= link_to "Add a friend", friendships_path(current_user), class: 'btn btn-success' %>  
+    <% end %>
 
 <%= link_to "Back to Profile", user_path(current_user), class: 'btn btn-primary' %>  

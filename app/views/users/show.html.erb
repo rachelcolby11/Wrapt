@@ -1,4 +1,4 @@
-<h2>My Profile</h2>
+<h2 class="text-center">My Profile</h2>
   <% if current_user.user_profile %>
       <%= render "profile", user: current_user %>
       <%= link_to "Edit My Profile", edit_user_profile_path(current_user), class: 'btn btn-success' %>

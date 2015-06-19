@@ -1,11 +1,11 @@
-<h1>All Items</h1>
+<h1 class="text-center">All Items</h1>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Item</th>
       <th>Size</th>
-      <th>Notes</th>
+      <th>Details</th>
       <th>Edit Item</th>
       <th>Delete Item</th>
       <th>Restrict Viewers</th>
@@ -18,14 +18,12 @@
         <td><%= item.name %></td>
         <td><%= item.size %></td>
         <td><%= item.notes %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to restrictions_item_path(item.id), class: 'btn btn-danger' do %><i class="glyphicon glyphicon-eye-close"></i><% end %></td>
+        <td><%= link_to edit_item_path(item), class: 'btn btn-primary' do %><i class="glyphicon glyphicon-pencil"></i><% end %></td>
+        <td><%= link_to item, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %><i class="glyphicon glyphicon-remove"></i><% end %></td>
+        <td><%= link_to restrictions_item_path(item.id), class: 'btn btn-danger center' do %><i class="glyphicon glyphicon-eye-close"></i><% end %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
 
 <%= link_to 'New Item', new_item_path, class: 'btn btn-success' %>
