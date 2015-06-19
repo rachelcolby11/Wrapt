@@ -5,7 +5,7 @@ class FriendshipsController < ApplicationController
 
     if existing_user.nil?
       # this is someone not in the system -> create them and invite them
-      @user_new = User.new(email: params[:email], password: "password")
+      @user_new = User.new(name: params[:email], email: params[:email], password: "password")
       @user_new.skip_confirmation!
 
         if @user_new.save
@@ -16,7 +16,7 @@ class FriendshipsController < ApplicationController
           @user_new.send_email_invite_from(current_user)
           redirect_to friendships_path(current_user)
         else
-          flash[:error] = "There was an error. Please try again."
+          flash[:error] = "There was an error adding this person. Please try again."
           redirect_to friendships_path(current_user)
         end
 

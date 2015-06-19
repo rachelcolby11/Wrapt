@@ -6,9 +6,9 @@
       <% upcoming_birthdays.each do |friend| %>
         <% if friend %>
           <tr>
-              <td><%= friend.name %></td>
-              <td><%= friend.user_profile.birthdate %></td>
               <td><%= friend.user_profile.birthdate.strftime("%B %d") %></td>
+              <td><%= friend.name %></td>
+
           </tr>
         <% end %>
       <% end %>

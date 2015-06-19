@@ -48,20 +48,10 @@ class User < ActiveRecord::Base
     friends = []
     friended_by.each do |friend|
       if friend.birthday_upcoming?
-        [] << friend
+        friends << friend
       end 
     end
     friends
   end
-  # def upcoming_birthday_friends
-  #   friends = []
-  #   friended_by.each do |friend|
-  #     if (friend.user_profile && friend.user_profile.birthdate && (friend.user_profile.next_birthday >= Date.today && friend.user_profile.next_birthday <= (Date.today + 3.months))) && friend.user_profile.birthdate != nil
-  #       [] << friend
-  #      end 
-  #     friends
-  #   end
-
-
 
 end
