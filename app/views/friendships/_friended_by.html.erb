@@ -11,7 +11,7 @@
         <td>
           <% my_friendships = Friendship.where(buddy_id=current_user.id) %>
           <!--   my_friendships is an array of all the all of the friendships where a user shared their gift list with the current user. -->
-          <% friendship = my_friendships.where(user_id=friend.id).first %>
+          <% friendship = my_friendships.where(user_id==friend.id).first %>
           <div class = "pull-right">
             <%= link_to [friendship], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: 'Are you sure? If you change your mind later, this person will have to add you as a friend again.' } do %><i class="glyphicon glyphicon-remove"> </i>&nbsp; Remove<% end %>
             </div>
