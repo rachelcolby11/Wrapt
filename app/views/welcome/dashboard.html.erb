@@ -3,12 +3,12 @@
   <br>
 
   <% unless current_user.user_profile %>
-    <h4><%= current_user.name %>, you still need to fill out your profile to help your friends pick great gifts for you! <br><br><%= link_to "Fill Out My Profile", new_user_profile_path %></h4>
+    <h4><%= current_user.name %>, you still need to <%= link_to "fill out your profile", new_user_profile_path %> to help your friends pick great gifts for you! </h4>
 
   <% else %>
       <% if current_user.user_profile.birthdate.nil? %>
-        <h4>Don't forget to add your birthday so your friends can plan for it! 
-          <br><%= link_to "Update My Profile", edit_user_profile_path(current_user) %></h4>
+        <h4>Don't forget to <%= link_to "add your birthday", edit_user_profile_path(current_user) %> so your friends can plan for it! 
+          <br></h4>
        <% end %>
   <% end %>
 
@@ -19,9 +19,26 @@
   </div>
 
   <div class="col-md-6">
+    <h4 class="text-center">You have <%= current_user.items.count %> items in your gift list. <%= link_to "Add items to my list.", new_item_path %></h4>
+    <br>
     <%= render partial: 'users/shopping_list', locals: { user: current_user } %>
   </div>
 
   <div class="col-md-3">
+    <h4 class="text-center">Friends</h4>
+
+    <p>You've shared your gift list with <%= current_user.buddies.count %> friends so far.</p>
+    <div class="text-center">
+      <h4>Add a friend!</h4>
+      <h5>Just enter their email here: </h5>
+        <%= form_for(Friendship.new) do |f| %>
+          <div class="form-group">
+            <%= text_field_tag 'email', '', size: 30 %>
+            <%= f.submit "Add", class: 'btn btn-sm btn-success' %>
+          </div>
+        <% end %>
+    <p>Friends you add can see your gift list and profile.</p>
+    </div>
+   
     <%= render partial: 'friendships/friended_by', locals: { user: current_user } %>
   </div>

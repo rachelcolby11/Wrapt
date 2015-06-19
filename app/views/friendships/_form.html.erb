@@ -1,10 +1,9 @@
 <div class="text-center">
-  <h2>Add a Friend!</h2>
     <h5>It's easy to share your gift list and profile with a friend. Just enter their email here!</h5>
 
   <%= form_for(Friendship.new) do |f| %>
     <div class="form-group">
-      <%= text_field_tag :email %>
+      <%= text_field_tag 'email', '', size: 32 %>
       <%= f.submit "Add", class: 'btn btn-sm btn-success' %>
     </div>
   <% end %>
