@@ -2,7 +2,7 @@
   <br>
  
 <div class="reminder-box">
-  <h4>Reminders from the team:</h4>
+  <h5>Reminders from the team:</h5>
     <ul>
       <% if current_user.name == current_user.email %>
         <li>By default, your name was set to your email address. <%= link_to "Click here to update your name.",edit_user_registration_path %></li>
@@ -20,23 +20,18 @@
      </ul> 
 </div>  
 
-  <div class="col-md-3">
+  <div class="col-md-4">
     <%= render partial: 'users/birthdays', locals: { user: current_user, upcoming_birthdays: @upcoming_birthdays } %>
-  </div>
-
-  <div class="col-md-6">
-    <h4 class="text-center">You have <%= current_user.items.count %> items in your gift list. <%= link_to "Add items to my list.", new_item_path %></h4>
     <br>
-    <%= render partial: 'users/shopping_list', locals: { user: current_user } %>
-  </div>
 
-  <div class="col-md-3">
-    <h4 class="text-center">Friends</h4>
+    <div class="text-center">
+    <h4>Friends</h4>
+    <br>
 
     <p>You've shared your gift list with <%= current_user.buddies.count %> friends so far.</p>
-    <div class="text-center">
-      <h4>Add a friend!</h4>
-      <h5>Just enter their email here: </h5>
+    <p><%= link_to "View all my friends.", friendships_path %></p>
+    
+      <h5>To add a friend, just enter their email: </h5>
         <%= form_for(Friendship.new) do |f| %>
           <div class="form-group">
             <%= text_field_tag 'email', '', size: 30 %>
@@ -45,6 +40,12 @@
         <% end %>
     <p>Friends you add can see your gift list and profile.</p>
     </div>
-   
-    <%= render partial: 'friendships/friended_by', locals: { user: current_user } %>
   </div>
+
+  <div class="col-md-8">
+    <h4 class="text-center">You have <%= current_user.items.count %> items in your gift list. <%= link_to "Add items to my list.", new_item_path %></h4>
+    <br>
+    <%= render partial: 'users/shopping_list', locals: { user: current_user } %>
+  </div>
+
+

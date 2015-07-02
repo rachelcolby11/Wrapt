@@ -1,9 +1,11 @@
 <h4 class="text-center">My Shopping List</h4>
-<br>
+
 <% if user.claimed_items.count >= 1 %>
+  <p>You've claimed <%= user.claimed_items.count %> items:</p>
   <table class="table">
     <thead>
       <tr>
+        <th>Friend</th>
         <th>Item</th>
         <th>Size</th>
         <th>Details</th>
@@ -12,6 +14,7 @@
     <tbody>
       <% user.claimed_items.each do |item| %>
           <tr>
+              <td><%= item.user.name %></td>
               <td><%= item.name %></td>
               <td><%= item.size %></td>
               <td><%= item.notes %></td>

@@ -7,8 +7,7 @@
         <% if friend %>
           <tr>
               <td><%= friend.user_profile.birthdate.strftime("%B %d") %></td>
-              <td><%= friend.name %></td>
-
+              <td><%= link_to "#{friend.name}", profile_user_path(friend) %></td>
           </tr>
         <% end %>
       <% end %>
