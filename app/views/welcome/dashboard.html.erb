@@ -1,6 +1,10 @@
 <div class="text-center">
   <h1>Welcome to Wrapt!</h1>
   <br>
+ 
+  <% if current_user.name == current_user.email %>
+    <h4>**  By default, your name was set to your email address. <%= link_to "Click here to update your name.",edit_user_registration_path %>  **<h4>
+  <% end %> 
 
   <% unless current_user.user_profile %>
     <h4><%= current_user.name %>, you still need to <%= link_to "fill out your profile", new_user_profile_path %> to help your friends pick great gifts for you! </h4>
