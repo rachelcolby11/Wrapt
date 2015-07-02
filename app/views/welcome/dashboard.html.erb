@@ -1,21 +1,23 @@
-<div class="text-center">
-  <h1>Welcome to Wrapt!</h1>
+<h1 class="text-center">Welcome to Wrapt!</h1>
   <br>
  
-  <% if current_user.name == current_user.email %>
-    <h4>**  By default, your name was set to your email address. <%= link_to "Click here to update your name.",edit_user_registration_path %>  **<h4>
-  <% end %> 
+<div class="reminder-box">
+  <h4>Reminders from the team:</h4>
+    <ul>
+      <% if current_user.name == current_user.email %>
+        <li>By default, your name was set to your email address. <%= link_to "Click here to update your name.",edit_user_registration_path %></li>
+      <% end %> 
 
-  <% unless current_user.user_profile %>
-    <h4><%= current_user.name %>, you still need to <%= link_to "fill out your profile", new_user_profile_path %> to help your friends pick great gifts for you! </h4>
+      <% unless current_user.user_profile %>
+        <li><%= current_user.name %>, you still need to <%= link_to "fill out your profile", new_user_profile_path %> to help your friends pick great gifts for you! </li>
 
-  <% else %>
-      <% if current_user.user_profile.birthdate.nil? %>
-        <h4>Don't forget to <%= link_to "add your birthday", edit_user_profile_path(current_user) %> so your friends can plan for it! 
-          <br></h4>
-       <% end %>
-  <% end %>
-
+      <% else %>
+          <% if current_user.user_profile.birthdate.nil? %>
+            <li>Don't forget to <%= link_to "add your birthday", edit_user_profile_path(current_user) %> so your friends can plan for it! 
+              <br></li>
+           <% end %>
+      <% end %>
+     </ul> 
 </div>  
 
   <div class="col-md-3">
