@@ -56,4 +56,12 @@ class User < ActiveRecord::Base
     friends
   end
 
+  def profile_complete?
+    if user_profile.present? && user_profile.birthdate.present? && (name != email)
+      true
+    else
+      false
+    end
+  end
+
 end
