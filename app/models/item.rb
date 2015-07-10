@@ -3,5 +3,5 @@ class Item < ActiveRecord::Base
   has_one :claim, dependent: :destroy
   has_many :exclusions, dependent: :destroy
 
-  validates_presence_of :user
+  validates_presence_of :user, :name
 end

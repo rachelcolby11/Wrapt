@@ -3,7 +3,7 @@
  
 <% unless current_user.profile_complete? %>
   <div class="reminder-box">
-    <h5>Reminders from the team:</h5>
+    <h5>Reminders from the Wrapt team:</h5>
       <ul>
         <% if current_user.name == current_user.email %>
           <li>By default, your name was set to your email address. <%= link_to "Click here to update your name.",edit_user_registration_path %></li>
