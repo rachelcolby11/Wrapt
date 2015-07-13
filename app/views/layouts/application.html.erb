@@ -12,15 +12,15 @@
   <div class="container">
    <ul class="nav nav-tabs">
         <% if current_user %>
-          <li><%= link_to "Home", welcome_dashboard_path %></li>
-          <li><%= link_to "About", welcome_about_path %></li>
+          <li><%= link_to "Home", dashboard_path %></li>
+          <li><%= link_to "About", about_path %></li>
           <li><%= link_to "Friends", friendships_path %></li>
               <% if current_user.user_profile %>
                   <li><%= link_to "My Profile", user_path(current_user) %></li>
               <% end %>
          <% else %>     
           <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "About", welcome_about_path %></li>
+          <li><%= link_to "About", about_path %></li>
         <% end %>
 
         <div class="pull-right user-info">

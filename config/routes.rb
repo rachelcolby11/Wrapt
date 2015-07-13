@@ -17,9 +17,8 @@ Rails.application.routes.draw do
     resources :users
   end
 
-  get 'welcome/index'
-  get 'welcome/about'
-  get 'welcome/dashboard'
+  get 'about' => 'welcome#about'
+  get 'dashboard' => 'welcome#dashboard'
 
   root to: 'welcome#index'
  

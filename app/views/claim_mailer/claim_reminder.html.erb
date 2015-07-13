@@ -11,7 +11,7 @@
       <p>The Wrapt Team</p>
     <br>
     <p>
-    <%= link_to "View my claimed items", welcome_dashboard_url(@user) %> | 
+    <%= link_to "View my claimed items", dashboard_url(@user) %> | 
     <%= link_to "Update my claim", profile_user_url(@friend) %> | 
     <%= link_to "View #{@item.name} on #{@friend.name}'s list", profile_user_url(@friend) %>
     </p>
