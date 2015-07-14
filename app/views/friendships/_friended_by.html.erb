@@ -1,25 +1,27 @@
-<% if current_user.friended_by.count >= 1 %>
+<div class='friend'>
+  <% if current_user.friended_by.count >= 1 %>
 
-  <h5 class="text-center"> These friends have shared their gift list with you. </h5>
-  <p>Note: Removing someone from this list means you will no longer have access to their profile or gift list.</p>
-  <!--   The loop generates a list of who the current user is a "buddy" of. Each item (called "friend") in the loop below is someone who has shared their list with the current user.
-   -->  
-  <table class = 'table'>
-    <% current_user.friended_by.each do |friend| %>
-      <tr>
-        <td><h5><%= link_to "#{friend.name}", profile_user_path(friend) %></h5></td>
-        <td>
-          <% my_friendships = Friendship.where(buddy_id: current_user.id) %>
-          <!--   my_friendships is an array of all the all of the friendships where a user shared their gift list with the current user. -->
-          <% friendship = my_friendships.where(user_id: friend.id).first %>
-          <div class = "pull-right">
-            <%= link_to [friendship], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: 'Are you sure? If you change your mind later, this person will have to add you as a friend again.' } do %><i class="glyphicon glyphicon-remove"> </i>&nbsp; Remove<% end %>
-            </div>
-        </td>  
-      </tr>
-    <% end %>
+    <h4 class='text-center'> These friends have shared their gift list with you. </h4>
+    <p>Note: Removing someone from this list means you will no longer have access to their profile or gift list.</p>
+    <!--   The loop generates a list of who the current user is a "buddy" of. Each item (called "friend") in the loop below is someone who has shared their list with the current user.
+     -->  
+    <table class='table'>
+      <% current_user.friended_by.each do |friend| %>
+        <tr>
+          <td><h5><%= link_to "#{friend.name}", profile_user_path(friend) %></h5></td>
+          <td>
+            <% my_friendships = Friendship.where(buddy_id: current_user.id) %>
+            <!--   my_friendships is an array of all the all of the friendships where a user shared their gift list with the current user. -->
+            <% friendship = my_friendships.where(user_id: friend.id).first %>
+            <div class='pull-right'>
+              <%= link_to [friendship], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: 'Are you sure? If you change your mind later, this person will have to add you as a friend again.' } do %><i class="glyphicon glyphicon-remove"> </i>&nbsp; Remove<% end %>
+              </div>
+          </td>  
+        </tr>
+      <% end %>
 
-  </table>
-<% else %>
-  <p class="text-justify">No one has shared their gift list with you yet. Ask your friends to add you, or invite new friends to Wrapt!</p>
-<% end %>
+    </table>
+  <% else %>
+    <p class='text-justify'>No one has shared their gift list with you yet. Ask your friends to add you, or invite new friends to Wrapt!</p>
+  <% end %>
+</div>
