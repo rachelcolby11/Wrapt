@@ -1,18 +1,19 @@
-<h4 class="text-center">Upcoming Birthdays</h4>
-
-<% if upcoming_birthdays.any? %>
-  <table class="table">
-    <tbody>
-      <% upcoming_birthdays.each do |friend| %>
-        <% if friend %>
-          <tr>
-              <td><%= friend.user_profile.birthdate.strftime("%B %d") %></td>
-              <td><%= link_to "#{friend.name}", profile_user_path(friend) %></td>
-          </tr>
+<div class="birthday">
+  <h4 class="text-center">Upcoming Birthdays</h4>
+  <% if upcoming_birthdays.any? %>
+    <table class="table">
+      <tbody>
+        <% upcoming_birthdays.each do |friend| %>
+          <% if friend %>
+            <tr>
+                <td><%= friend.user_profile.birthdate.strftime("%B %d") %></td>
+                <td><%= link_to "#{friend.name}", profile_user_path(friend) %></td>
+            </tr>
+          <% end %>
         <% end %>
-      <% end %>
-    </tbody>
-  </table>
- <% else %>
-  <p class="text-center">*Phew* - you're safe! None of your friends have birthdays coming up in the next 3 months!</p> 
- <% end %> 
+      </tbody>
+    </table>
+   <% else %>
+    <p class="text-center">*Phew* - you're safe! None of your friends have birthdays coming up in the next 3 months!</p> 
+   <% end %> 
+</div>

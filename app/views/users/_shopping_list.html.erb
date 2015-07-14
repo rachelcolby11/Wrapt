@@ -1,28 +1,29 @@
-<h4 class="text-center">My Shopping List</h4>
-
-<% if user.claimed_items.count >= 1 %>
-  <p>You've claimed <%= user.claimed_items.count %> items:</p>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Friend</th>
-        <th>Item</th>
-        <th>Size</th>
-        <th>Details</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% user.claimed_items.each do |item| %>
-          <tr>
-              <td><%= item.user.name %></td>
-              <td><%= item.name %></td>
-              <td><%= item.size %></td>
-              <td><%= item.notes %></td>
-              <td><%= render partial: 'claims/claim_short', locals: {item: item, user: user } %></td>
-          </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% else %>
-  <p class="text-center">You don't have any claimed items.</p>
-<% end %>
+<div class="items">
+  <h4 class="text-center">My Shopping List</h4>
+  <% if user.claimed_items.count >= 1 %>
+    <p>You've claimed <%= user.claimed_items.count %> items:</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Friend</th>
+          <th>Item</th>
+          <th>Size</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% user.claimed_items.each do |item| %>
+            <tr>
+                <td><%= item.user.name %></td>
+                <td><%= item.name %></td>
+                <td><%= item.size %></td>
+                <td><%= item.notes %></td>
+                <td><%= render partial: 'claims/claim_short', locals: {item: item, user: user } %></td>
+            </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p class="text-center">You don't have any claimed items.</p>
+  <% end %>
+</div>
