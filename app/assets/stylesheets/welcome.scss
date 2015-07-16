@@ -7,14 +7,25 @@
    overflow-y: scroll;
  }
 
- .birthday {
+.birthday {
   background-color: #fff129;
  }
 
- .items {
+.items {
   background-color: #6cefdd;
  }
 
- .narrow {
-  width: 70%;
+.header {
+  font-size: 20px;
+  margin: 5px, 0, 105px, 0;
+}
+
+.about {
+  margin: auto;
+ }
+
+.about-text {
+  text-align: justify;
+  margin: 20px, 0, 20px, 0;
+  font-size: 17px
  }
