@@ -17,7 +17,7 @@
 
 .header {
   font-size: 20px;
-  margin: 5px, 0, 105px, 0;
+  margin: 18px 0 5px 0;
 }
 
 .about {
@@ -26,6 +26,11 @@
 
 .about-text {
   text-align: justify;
-  margin: 20px, 0, 20px, 0;
+  margin: 12px 0 20px 0;
   font-size: 17px
  }
+
+.jumbotron.y {
+  background-color: #a819e1;
+  color: #ffffff
+}
