@@ -13,6 +13,7 @@
 
 .items {
   background-color: #6cefdd;
+  padding: 5px 10px 5px 10px;
  }
 
 .header {
@@ -33,4 +34,13 @@
 .jumbotron.y {
   background-color: #7f16c5;
   color: #ffffff
+}
+
+.features-bar {
+  float: right;
+  width: 30%;
+}
+
+.main {
+  float: left;
 }
