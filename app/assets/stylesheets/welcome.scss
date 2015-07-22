@@ -16,7 +16,8 @@
   padding: 5px 10px 5px 10px;
  }
 
-.header {
+.intro {
+  text-align: justify;
   font-size: 20px;
   margin: 18px 0 5px 0;
 }
@@ -38,9 +39,25 @@
 
 .features-bar {
   float: right;
-  width: 30%;
+  background-color: #C6FF8A;
+  padding: 15px;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+  margin-left: 3em;
+  font-size: 15px;
 }
 
 .main {
-  float: left;
+  position: absolute;
+  background-color: #7f16c5;
+  color: #ffffff;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+}
+
+.small {
+  width: 25%;
+  margin: 10px
 }
