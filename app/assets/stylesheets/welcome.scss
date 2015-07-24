@@ -8,11 +8,11 @@
  }
 
 .birthday {
-  background-color: #fff129;
+  background-color: #71D4FF;
  }
 
 .items {
-  background-color: #6cefdd;
+  background-color: #62E778;
   padding: 5px 10px 5px 10px;
  }
 
@@ -27,34 +27,37 @@
  }
 
 .about-text {
-  text-align: justify;
   margin: 12px 0 20px 0;
   font-size: 17px
  }
 
 .jumbotron.y {
   background-color: #7f16c5;
-  color: #ffffff
+  color: #ffffff;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #35D04E;
 }
 
-.features-bar {
-  float: right;
-  background-color: #C6FF8A;
-  padding: 15px;
-  border-style: solid;
-  border-width: 1px;
-  box-sizing: border-box;
-  margin-left: 3em;
-  font-size: 15px;
+.jumbotron.y h1 {
+  color: #FFE552;
+  font-weight: bold;
 }
 
 .main {
   position: absolute;
   background-color: #7f16c5;
-  color: #ffffff;
-  border-style: solid;
-  border-width: 1px;
+  color: #FFE552;
   box-sizing: border-box;
+  margin-right: 3em;
+}
+
+.features-bar {
+  float: right;
+  background-color: #60F45D;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 15px;
 }
 
 .small {
