@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :friendships, dependent: :destroy
   has_many :buddies, through: :friendships, class_name: "User", foreign_key: "buddy_id"
   has_many :exclusions, dependent: :destroy
+  has_many :notes, dependent: :destroy
 
   validates_presence_of :name
 
