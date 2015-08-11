@@ -31,6 +31,14 @@ class NotesController < ApplicationController
   end
 
   def destroy
+   @note = Note.find(params[:id])
+   if @note.destroy
+     flash[:notice] = "Your note was deleted successfully."
+     redirect_to dashboard_path
+   else
+     flash[:error] = "There was an error deleting your note."
+     render dashboard_path
+   end
   end
 
   def note_params
