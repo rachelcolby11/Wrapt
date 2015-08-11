@@ -1,0 +1,9 @@
+<div class="media-body">
+    <small>
+      <%# if policy(comment).destroy? %>
+        <%#= link_to "Delete", note_delete_path, method: :delete, remote: true %>
+        <%= link_to [@note], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: 'Are you sure?' } do %><i class="glyphicon glyphicon-remove"> </i><% end %>
+      <%# end %>
+    </small>
+    <p><%= @note.body %></p>
+  </div>
