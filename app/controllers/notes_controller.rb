@@ -16,7 +16,18 @@ class NotesController < ApplicationController
   end
 
   def edit
+    @note = Note.find(params[:id])
+  end
 
+  def update
+   @note = Note.find(params[:id])
+   if @note.update_attributes(note_params)
+     flash[:notice] = "Your note has been updated."
+     redirect_to dashboard_path
+   else
+     flash[:error] = "There was an error saving your note. Please try again."
+     render :edit
+   end
   end
 
   def destroy
