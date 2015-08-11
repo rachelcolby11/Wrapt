@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   resources :user_profiles
 
+  resources :notes
+
   namespace :admin do
     resources :users
   end
