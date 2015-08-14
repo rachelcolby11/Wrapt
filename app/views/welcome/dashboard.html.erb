@@ -48,7 +48,11 @@
   <h4 class="text-center">You have <%= current_user.items.count %> items in your gift list. <%= link_to "Add items to my list.", new_item_path %></h4>
   <br>
   <%= render partial: 'users/shopping_list', locals: { user: current_user } %>
-  <%= render partial: 'notes/note' %>
+  <div class="notes">
+      <h4 class="text-center">Notes</h4>
+      <p>Add all your great gift ideas here!</p>
+    <%= render partial: 'notes/note' %>
+  </div>
 </div>
 
 
