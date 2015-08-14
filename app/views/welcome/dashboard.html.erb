@@ -23,7 +23,7 @@
 <% end %>
 
 
-<div class="col-md-4 birthday">
+<div class="col-md-4 birthday-friend">
   <%= render partial: 'users/birthdays', locals: { user: current_user, upcoming_birthdays: @upcoming_birthdays } %>
   <br>
 
@@ -46,7 +46,6 @@
 
 <div class="col-md-8">
   <h4 class="text-center">You have <%= current_user.items.count %> items in your gift list. <%= link_to "Add items to my list.", new_item_path %></h4>
-  <br>
   <%= render partial: 'users/shopping_list', locals: { user: current_user } %>
   <div class="notes">
       <h4 class="text-center">Notes</h4>
