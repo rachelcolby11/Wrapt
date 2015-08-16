@@ -49,10 +49,13 @@
 <div class="col-md-8">
   <h4 class="text-center">You have <%= current_user.items.count %> items in your gift list. <%= link_to "Add items to my list.", new_item_path %></h4>
   <%= render partial: 'users/shopping_list', locals: { user: current_user } %>
-</div>
 
-  <div class="col-md-12 notes">
-      <h4 class="text-center">Notes</h4>
-      <p>Add all your great gift ideas here! &nbsp;&nbsp;<%= link_to "New Note", new_note_path, class: 'btn btn-sm btn-success' %></p>
+  <div class="notes">
+    <div class="text-center">
+      <h4>My Notes</h4>
+      <p>Add all your great gift ideas here!</p>
+      <p><%= link_to "New Note", new_note_path, class: 'btn btn-sm btn-success' %></p>
+    </div>
     <%= render partial: 'notes/note' %>
   </div>
+</div>
