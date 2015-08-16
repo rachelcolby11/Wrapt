@@ -23,11 +23,13 @@
 <% end %>
 
 
-<div class="col-md-4 birthday-friend">
-  <%= render partial: 'users/birthdays', locals: { user: current_user, upcoming_birthdays: @upcoming_birthdays } %>
+<div class="col-md-4">
+  <div class="birthday">
+    <%= render partial: 'users/birthdays', locals: { user: current_user, upcoming_birthdays: @upcoming_birthdays } %>
+  </div>
   <br>
 
-  <div class="text-center">
+  <div class="birthday text-center">
     <h4>Friends</h4>
 
     <p>You've shared your gift list with <%= current_user.buddies.count %> friends so far.</p>
@@ -47,12 +49,10 @@
 <div class="col-md-8">
   <h4 class="text-center">You have <%= current_user.items.count %> items in your gift list. <%= link_to "Add items to my list.", new_item_path %></h4>
   <%= render partial: 'users/shopping_list', locals: { user: current_user } %>
+</div>
 
-  <div class="notes">
+  <div class="col-md-12 notes">
       <h4 class="text-center">Notes</h4>
       <p>Add all your great gift ideas here! &nbsp;&nbsp;<%= link_to "New Note", new_note_path, class: 'btn btn-sm btn-success' %></p>
     <%= render partial: 'notes/note' %>
   </div>
-</div>
-
-
