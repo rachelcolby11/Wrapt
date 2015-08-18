@@ -12,16 +12,20 @@
   padding: 5px;
  }
 
-.items {
+.shop {
   background-color: rgba(113, 240, 111, 0.76); /* light green */
   padding: 5px 10px;
   margin: 20px 0px;
+  height: 15em;
+  overflow-y: scroll;
  }
 
  .notes {
   background-color: #71D4FF; /* blue */
   padding: 5px 10px;
   margin: 20px 0px;
+  height: 15em;
+  overflow-y: scroll;
 }
 
 .intro {
