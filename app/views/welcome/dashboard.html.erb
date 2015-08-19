@@ -26,12 +26,12 @@
 <!-- List of Upcoming Birthdays, Add Friend Form
  -->
  <div class="col-md-4">
-  <div class="birthday-friend">
+  <div class="birthday">
     <%= render partial: 'users/birthdays', locals: { user: current_user, upcoming_birthdays: @upcoming_birthdays } %>
   </div>
   <br>
 
-  <div class="birthday-friend text-center">
+  <div class="friend text-center">
     <h4>Friends</h4>
     <p>You've shared your gift list with <%= current_user.buddies.count %> friends so far.</p>
     <h5><%= link_to "View all my friends.", friendships_path %></h5>
@@ -49,7 +49,7 @@
 <!-- Item Count, Shopping List and Notes -->
 <div class="col-md-8">
   <h4 class="text-center">You have <%= current_user.items.count %> items in your gift list. <%= link_to "Add items to my list.", new_item_path %></h4>
-  
+
   <div class="shop">
     <h4 class="text-center">My Shopping List</h4>
     <%= render partial: 'users/shopping_list', locals: { user: current_user } %>

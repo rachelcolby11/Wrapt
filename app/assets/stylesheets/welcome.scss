@@ -2,14 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.friend {
-   overflow-x: scroll;
-   overflow-y: scroll;
- }
-
-.birthday-friend {
+.birthday {
   background-color: #71D4FF; /* blue */
   padding: 5px;
+  height: 16em;
+  overflow-x: scroll;
+  overflow-y: scroll;
+ }
+
+.friend {
+   background-color: rgba(113, 240, 111, 0.76); /* light green */
+   padding: 5px;
  }
 
 .shop {
