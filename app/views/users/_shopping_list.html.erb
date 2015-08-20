@@ -1,12 +1,13 @@
 <% if user.claimed_items.count >= 1 %>
   <p>You've claimed <%= user.claimed_items.count %> items:</p>
-  <table class="table">
+  <table class="table table-condensed">
     <thead>
       <tr>
         <th>Friend</th>
         <th>Item</th>
         <th>Size</th>
         <th>Details</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -22,5 +23,5 @@
     </tbody>
   </table>
 <% else %>
-  <p class="text-center">You don't have any claimed items.</p>
+  <p class="text-center none">You don't have any claimed items.</p>
 <% end %>
