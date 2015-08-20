@@ -4,11 +4,22 @@
 
 .birthday {
   background-color: #71D4FF; /* blue */
-  padding: 5px;
   height: 16em;
   overflow-x: scroll;
   overflow-y: scroll;
+  padding: 5px;
  }
+
+ 
+  .no-bday-div {
+    margin: 1.7em 1em 2em 1em;
+  }
+
+  .no-bday {
+    font-size: 16px;
+    line-height: 1.5em;
+  }
+ 
 
 .friend {
    background-color: rgba(113, 240, 111, 0.76); /* light green */
