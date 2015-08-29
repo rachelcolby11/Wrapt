@@ -55,7 +55,7 @@
 
 .intro {
   text-align: justify;
-  font-size: 20px;
+  font-size: 18px;
   margin: 18px 0 5px 0;
 }
 
@@ -81,13 +81,15 @@
   color: #FFE552;
   box-sizing: border-box;
   margin: .7em;
+  padding: 15px;
 }
 
-.features-bar {
+.features-box {
   background-color: rgba(113, 240, 111, 0.76); /* light green */
   padding: 15px;
   box-sizing: border-box;
   font-size: 15px;
+  color: black;
   margin: .7em;
 }
 
