@@ -1,9 +1,7 @@
- <%= form_for @note do |f| %>
- 
-   <%= f.label :body %>
+<%= form_for @note do |f| %>
+   <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Type your great ideas here!" %>
    <br>
-   <%= f.text_area :body %>
-   <br> 
-   <%= f.submit "Save" %>
-
- <% end %>
+ <div class="form-group">
+   <%= f.submit "Save", class: 'btn btn-success' %>
+ </div>
+<% end %> 
