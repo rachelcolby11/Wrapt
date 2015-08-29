@@ -1,23 +1,20 @@
-<div class='friend'>
-  <% if current_user.buddies.count >= 1 %>
-    <h4 class='text-center'> These friends can see your gift list and profile. </h4>
+<% if current_user.buddies.count >= 1 %>
+  <h4 class='text-center'> These friends can see your gift list and profile. </h4>
 
-    <table class='table'>
-      <% current_user.buddies.each do |buddy| %>
-        <tr>
-          <td><h5><%= buddy.name %></h5></td>
-          <td>
-            <% friendship = current_user.friendships.where(buddy_id: buddy.id).first %>
-            <div class='pull-right'>
-              <%= link_to [friendship], method: :delete, class: 'btn btn-sm btn-danger' do %><i class='glyphicon glyphicon-remove'> </i><% end %>
-            </div>
-          </td>  
-        </tr>
-      <% end %>
-    </table>
+  <table class='table'>
+    <% current_user.buddies.each do |buddy| %>
+      <tr>
+        <td><h5><%= buddy.name %></h5></td>
+        <td>
+          <% friendship = current_user.friendships.where(buddy_id: buddy.id).first %>
+          <div class='pull-right'>
+            <%= link_to [friendship], method: :delete, class: 'btn btn-sm btn-danger' do %><i class='glyphicon glyphicon-remove'> </i><% end %>
+          </div>
+        </td>  
+      </tr>
+    <% end %>
+  </table>
 
-  <% else %>
-    <h4 class='text-justify'>No one can see your gift list yet! Add friends so they can check out your list!</h4>
-  <% end %> 
-  
-</div>
+<% else %>
+  <h4 class='text-justify'>No one can see your gift list yet! Add friends so they can check out your list!</h4>
+<% end %> 
