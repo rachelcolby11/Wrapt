@@ -8,6 +8,9 @@
   overflow-x: scroll;
   overflow-y: scroll;
   padding: 5px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgba(113, 240, 111, 0.76); /* light green */
  }
 
 .no-bday-div {
@@ -43,6 +46,9 @@
   margin: 20px 0px;
   height: 16em;
   overflow-y: scroll;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #71D4FF; /* blue */
  }
 
  .notes {
@@ -51,6 +57,9 @@
   margin: 20px 0px;
   height: 18em;
   overflow-y: scroll;
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgba(113, 240, 111, 0.76); /* light green */
 }
 
 .intro {
