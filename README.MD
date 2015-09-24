@@ -1,12 +1,20 @@
 ### [Wrapt](https://wrapt.herokuapp.com/)
 
-https://wrapt.herokuapp.com (demo version)
+Wrapt, my capstone project at Bloc.io, is a Ruby on Rails application that allows users to create a wishlist of gifts and view their friends'​ lists, all in one place. I built Wrapt so that people could access up-to-date wishlists from their friends and family all in one place, and update their own wishlist without feeling obnoxious. It's designed to make the process of gift-giving and gift-receiving easier,  less stressful, and more gratifying for everyone involved.
 
-https://github.com/rachelcolby11/Wrapt (source code)
+The app is deployed on Heroku: https://wrapt.herokuapp.com 
+The source code is here on GitHub: https://github.com/rachelcolby11/Wrapt
 
-Wrapt is a Ruby on Rails application that allows users to create a wishlist of gifts they hope to receive, and view their friends'​ lists in one place. It's designed to make the process of gift-giving and gift-receiving easier,  less stressful, and more gratifying for everyone involved.
+#### Technologies
+**Languages, Libraries, and Frameworks:** Ruby on Rails, Bootstrap
 
-Wrapt was my capstone project at Bloc.io. I built Wrapt so that people could access up-to-date wishlists from their friends and family all in one place, and update their own wishlist without feeling obnoxious. I've kept building on it since graduating from Bloc. I would ultimately like to monetize the app by leveraging the Amazon Product Advertising API to suggest items to users.
+**Databases:** SQLite (Test, Development), PostgreSQL (Production)
+
+**Development Tools, Gems and Methodologies:** 
+
+* Devise for user authentication
+* SendGrid for email notifications
+* Pundit for authorization
 
 #### Features
 * Users can create an account, make a profile describing their preferences, and create a list of gifts they would like to receive.
@@ -20,14 +28,3 @@ Wrapt was my capstone project at Bloc.io. I built Wrapt so that people could acc
 * Users can create, edit, and delete quick notes of gift ideas they think of.
 * After signing in, users are directed to a dashboard showing the items they have claimed, the notes they have made, and a list of friends whose birthdays are approaching within the next three months. 
 * Users who still need to fill out their profile or add their birthday will see a reminder to do so at the top of the dashboard.
-
-#### Technologies
-**Languages, Libraries, and Frameworks:** Ruby on Rails, Bootstrap
-
-**Databases:** SQLite (Test, Development), PostgreSQL (Production)
-
-**Development Tools, Gems and Methodologies:** 
-
-* Devise for user authentication
-* SendGrid for email notifications
-* Pundit for authorization
