@@ -1,6 +1,6 @@
 ## [Wrapt](https://wrapt.herokuapp.com/)
 
-Wrapt, my capstone project at Bloc.io, is a Ruby on Rails application that allows users to create a wishlist of gifts and view their friends'​ lists as well. I built Wrapt so that people could access up-to-date wishlists from their friends and family all in one place, and update their own wishlist without feeling obnoxious. It's designed to make the process of gift-giving and gift-receiving easier, less stressful, and more gratifying for everyone involved.
+Wrapt is a Ruby on Rails application that allows users to create a wishlist of gifts and view their friends'​ lists as well. Users can access up-to-date wishlists from their friends and family all in one place, and update their own wishlist at any time, making gift-giving and receiving easier and more gratifying for everyone involved.
 
 * The app is deployed on Heroku: https://wrapt.herokuapp.com 
 * The source code is here on GitHub: https://github.com/rachelcolby11/Wrapt
@@ -32,3 +32,8 @@ Wrapt, my capstone project at Bloc.io, is a Ruby on Rails application that allow
 * Users can create, edit, and delete quick notes of gift ideas they think of.
 * After signing in, users are directed to a dashboard showing the items they have claimed, the notes they have made, and a list of friends whose birthdays are approaching within the next three months. 
 * Users who still need to fill out their profile or add their birthday will see a reminder to do so at the top of the dashboard.
+
+---
+
+#### Notes
+This app was created as my capstone project for Bloc.io's Full Stack Web Development Course.
