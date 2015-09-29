@@ -1,6 +1,6 @@
-# [Wrapt](https://wrapt.herokuapp.com/)
+# [Wrapt](https://wrapt.herokuapp.com/) - bringing the joy back to giving!
 
-Wrapt is a Ruby on Rails application that allows users to create a wishlist of gifts and view their friends'​ lists as well. Users can access up-to-date wishlists from their friends and family all in one place, and update their own wishlist at any time, making gift-giving and receiving easier and more gratifying for everyone involved.
+Wrapt is a Ruby on Rails application that allows users to create a wishlist of gifts and view their friends'​ lists as well. Users can access up-to-date wishlists from their friends and family all in one place, and update their own wishlist at any time, making gift-giving easier and more gratifying for everyone involved.
 
 * The app is deployed on Heroku: https://wrapt.herokuapp.com 
 * The source code is here on GitHub: https://github.com/rachelcolby11/Wrapt
@@ -20,8 +20,8 @@ Wrapt uses Ruby on Rails and Bootstrap.
 * SendGrid for email notifications
 * Pundit for authorization
 
-**Setup:**
-* Environment variables were set using [figaro] (https://github.com/laserlemon/figaro) and are stored in config/application.yml (ignored by git)
+####**Setup:**
+* Environment variables were set using [Figaro] (https://github.com/laserlemon/figaro) and are stored in config/application.yml (ignored by git)
 * The config/application.example.yml file illustrates how environment variables should be stored
 
 ####**To run Wrapt locally:**
