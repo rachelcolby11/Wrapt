@@ -1,4 +1,4 @@
-# [Wrapt](https://wrapt.herokuapp.com/) - bringing the joy back to giving!
+# [Wrapt - bringing the joy back to giving!](https://wrapt.herokuapp.com/) 
 
 Wrapt is a Ruby on Rails application that allows users to create a wishlist of gifts and view their friends'​ lists as well. Users can access up-to-date wishlists from their friends and family all in one place, and update their own wishlist at any time, making gift-giving easier and more gratifying for everyone involved.
 
@@ -9,7 +9,7 @@ This app was created as my capstone project for Bloc.io's Full Stack Web Develop
 
 ## Setup and Configuration
 **Languages and Frameworks:** 
-Wrapt uses Ruby on Rails and Bootstrap.
+Ruby on Rails and Bootstrap
 
 **Ruby version 2.0.0**
 
@@ -29,7 +29,7 @@ Wrapt uses Ruby on Rails and Bootstrap.
 - Run `bundle install`
 - Create and migrate the SQLite3 database with `rake db:create` and `rake db:migrate`
 - Start the server using `rails server`
-- Run the app in `localhost:3000` 
+- Run the app on `localhost:3000` 
 
 ## Features
 * Users can create an account, make a profile describing their preferences, and create a list of gifts they would like to receive.
