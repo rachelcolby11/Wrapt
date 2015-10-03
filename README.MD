@@ -15,23 +15,23 @@ Ruby on Rails and Bootstrap
 
 **Databases:** SQLite (Test, Development), PostgreSQL (Production)
 
-**Development Tools and Gems:** 
+**Development Tools and Gems include:** 
 * Devise for user authentication
 * SendGrid for email notifications
 * Pundit for authorization
 
 ####**Setup:**
-* Environment variables were set using [Figaro] (https://github.com/laserlemon/figaro) and are stored in config/application.yml (ignored by git)
-* The config/application.example.yml file illustrates how environment variables should be stored
+* Environment variables were set using [Figaro] (https://github.com/laserlemon/figaro) and are stored in config/application.yml (ignored by git).
+* The config/application.example.yml file illustrates how environment variables should be stored.
 
 ####**To run Wrapt locally:**
-- Clone the repository
-- Run `bundle install`
-- Create and migrate the SQLite3 database with `rake db:create` and `rake db:migrate`
-- Start the server using `rails server`
-- Run the app on `localhost:3000` 
+* Clone the repository
+* Run `bundle install`
+* Create and migrate the SQLite database with `rake db:create` and `rake db:migrate`
+* Start the server using `rails server`
+* Run the app on `localhost:3000` 
 
-## Features
+##Features
 * Users can create an account, make a profile describing their preferences, and create a list of gifts they would like to receive.
 * Users can share their profile and gift list with other users, allowing them to view their preferences and desired items.
 * Users can invite friends and family to join the site and view their gift list.
