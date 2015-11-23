@@ -6,10 +6,9 @@
   <body>
     <h3><%= @user.name %> has invited you to join Wrapt! </h3>
     <p>
-      Wrapt lets you share what gifts you want with friends, and keep track of their wishlists too! We've included great features that make giving and receiving gifts a wrap. You can claim a gift on a friend's list to make sure nobody else buys the same gift, and customize viewing permissions so items on your list are visible only to certain people.    
+      <%= link_to "Wrapt", root_url %> lets you share what gifts you want with friends, and keep track of their wishlists too! We've included great features that make giving and receiving gifts a wrap. You can claim a gift on a friend's list to make sure nobody else buys the same gift, and customize viewing permissions so items on your list are visible only to certain people.    
     </p>
-    <h4>
-      <%= link_to "Check out Wrapt today!", root_url %> Log in using your email and temporary password: "password."
+    <h4>Check out Wrapt today! <%= link_to "Log in here", new_user_session_url %> using your email and temporary password: "password."
     </h4>
   </body>
 </html>
