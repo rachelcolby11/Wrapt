@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
 
   def birthday_upcoming?
     if user_profile
-      if user_profile.birthdate.present? && (user_profile.next_birthday >= Date.today.to_date) && (user_profile.next_birthday <= (Date.today.to_date + 3.months))
+      if user_profile.birthdate.present? && (user_profile.next_birthday <= (Date.today.to_date + 3.months))
         true
       else
         false
