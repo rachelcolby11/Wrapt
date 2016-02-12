@@ -1,3 +1,10 @@
 // Place all the styles related to the Items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.btn.btn-x-sm.btn-danger {
+  padding: 6px 8px;
+  font-size: 12px;
+  line-height: 1;
+  border: 1.3px solid #d43f3a;
+}
