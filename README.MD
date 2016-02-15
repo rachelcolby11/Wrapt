@@ -5,8 +5,6 @@ Wrapt is a Ruby on Rails application that allows users to create a wishlist of g
 * The app is deployed on Heroku: https://wrapt.herokuapp.com 
 * The source code is here on GitHub: https://github.com/rachelcolby11/Wrapt
 
-This app was created as my capstone project for Bloc.io's Full Stack Web Development Course.
-
 ## Setup and Configuration
 **Languages and Frameworks:** 
 Ruby on Rails and Bootstrap
