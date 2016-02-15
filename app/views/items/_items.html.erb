@@ -26,7 +26,7 @@
             <% if current_user == item.user %>
               <td><%= link_to edit_item_path(item, redirect: true), class: 'btn btn-primary edit' do %><i class="glyphicon glyphicon-pencil"></i><% end %></td>
               <td><%= link_to item, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %><i class="glyphicon glyphicon-remove"></i><% end %></td>
-              <td><%= link_to restrictions_item_path(item.id), class: 'btn btn-danger' do %><i class="glyphicon glyphicon-eye-close"></i><% end %></td>
+              <td><%= link_to restrictions_item_path(item.id), class: 'btn btn-danger restrict' do %><i class="glyphicon glyphicon-eye-close"></i><% end %></td>
 
             <% else %>
               <td><%= render partial: 'claims/claim_short', locals: {item: item, user: current_user } %></td>
