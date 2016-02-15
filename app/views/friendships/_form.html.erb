@@ -3,7 +3,7 @@
 <div class='text-center'>
   <%= form_for(Friendship.new) do |f| %>
     <div class='form-group'>
-      <%= text_field_tag 'email', '', size: 32 %>
+      <%= text_field_tag 'email', '', size: 20 %>
       <%= f.submit 'Add', class: 'btn btn-sm btn-success' %>
     </div>
   <% end %>
