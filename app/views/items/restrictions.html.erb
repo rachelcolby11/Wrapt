@@ -3,16 +3,18 @@
 <br>
 
   <% if current_user.buddies.count >= 1 %>
-    <table class='table'>
-      <% current_user.buddies.each do |buddy| %>
-        <tr>
-          <td><h5><%= buddy.name %></h5></td>
-          <td>
-             <%= render partial: 'exclusions/exclusion', locals: { item: @item, buddy_id: buddy.id } %>
-          </td>  
-        </tr>
-      <% end %>
+    <div class='table-responsive'>
+      <table class='table'>
+        <% current_user.buddies.each do |buddy| %>
+          <tr>
+            <td><%= buddy.name %></td>
+            <td>
+               <%= render partial: 'exclusions/exclusion', locals: { item: @item, buddy_id: buddy.id } %>
+            </td>  
+          </tr>
+        <% end %>
     </table>
+    </div>
 
    <% else %>
       <h5>You haven't shared your gift list with anyone, so at the moment nodody can see this item.</h5>
