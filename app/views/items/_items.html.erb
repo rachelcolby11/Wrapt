@@ -29,7 +29,7 @@
               <td><%= link_to restrictions_item_path(item.id), class: 'btn btn-danger restrict' do %><i class="glyphicon glyphicon-eye-close"></i><% end %></td>
 
             <% else %>
-              <td><%= render partial: 'claims/claim_short', locals: {item: item, user: current_user } %></td>
+              <td class='claim'><%= render partial: 'claims/claim_short', locals: {item: item, user: current_user } %></td>
             <% end %>
            </tr>  
 
