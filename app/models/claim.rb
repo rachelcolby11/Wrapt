@@ -9,7 +9,14 @@ class Claim < ActiveRecord::Base
   end
 
   def self.claims_to_remind
-    Claim.where(age_in_days = 7)
+    claims_to_remind = []
+    Claim.all.each do |claim|
+      if claim.age_in_days == 7
+        claims_to_remind << claim
+      end
+    end
+    claims_to_remind
   end
 
 end
+
