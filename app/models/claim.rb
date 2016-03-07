@@ -9,13 +9,11 @@ class Claim < ActiveRecord::Base
   end
 
   def self.claims_to_remind
-    claims_to_remind = []
-    Claim.all.each do |claim|
-      if claim.age_in_days == 7
-        claims_to_remind << claim
-      end
+    if Rails.env.production?
+     Claim.where('EXTRACT(days FROM now() - created_at) = 7')
+    else
+      Claim.where("created_at = ?", 7.days.ago)
     end
-    claims_to_remind
   end
 
 end
