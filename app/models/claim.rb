@@ -12,7 +12,7 @@ class Claim < ActiveRecord::Base
     if Rails.env.production?
      Claim.where('EXTRACT(days FROM now() - created_at) = 7')
     else
-      Claim.where("created_at = ?", 7.days.ago)
+      Claim.where(created_at: (Date.today - 8.days)..(Date.today - 7.days))
     end
   end
 
