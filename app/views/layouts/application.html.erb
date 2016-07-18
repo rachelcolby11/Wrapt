@@ -3,12 +3,13 @@
 <head>
   <title>Wrapt</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
+
   <div class="container">
    <ul class="nav nav-tabs">
         <% if current_user %>
@@ -18,17 +19,17 @@
               <% if current_user.user_profile %>
                   <li><%= link_to "My Profile", user_path(current_user) %></li>
               <% end %>
-         <% else %>     
+         <% else %>
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "About", about_path %></li>
         <% end %>
 
         <div class="pull-right user-info">
            <% if current_user %>
-            Hello <%= link_to (current_user.name || current_user.email), edit_user_registration_path %>! 
+            Hello <%= link_to (current_user.name || current_user.email), edit_user_registration_path %>!
               <% if current_user.user_profile %>
                 | <%= link_to "Update My Profile", edit_user_profile_path(current_user) %>
-                <% end %> 
+                <% end %>
               | <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
            <% else %>
              <%= link_to "Sign In", new_user_session_path %> or
@@ -36,7 +37,7 @@
            <% end %>
          </div>
 
-   </ul>  
+   </ul>
 
       <% if flash[:notice] %>
          <div class="alert alert-success">
@@ -53,10 +54,10 @@
            <button type="button" class="close" data-dismiss="alert">&times;</button>
            <%= flash[:alert] %>
          </div>
-       <% end %>  
-    
+       <% end %>
+
 <%= yield %>
-  </div> 
+  </div>
 
 </body>
 </html>

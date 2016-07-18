@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#main-site-title {
+  font-family: 'Lobster', cursive;
+  font-size: 90px;
+  font-weight: bold;
+  color: #FFE552;
+  margin: 50px;
+}
+
 .birthday {
   background-color: #71D4FF; /* blue */
   height: 16em;
@@ -78,11 +86,7 @@
   border-style: solid;
   border-width: 5px;
   border-color: #35D04E;
-}
-
-.jumbotron.y h1 {
-  color: #FFE552;
-  font-weight: bold;
+  margin-top: 20px;
 }
 
 .main {
