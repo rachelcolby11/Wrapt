@@ -4,10 +4,20 @@
 
 #main-site-title {
   font-family: 'Lobster', cursive;
-  font-size: 90px;
+  font-size: 110px;
   font-weight: bold;
-  color: #FFE552;
-  margin: 50px;
+  color: #FFE552; /* yellow */
+  text-shadow: 0px 5px 5px #45286b;
+  margin-bottom: 40px;
+}
+
+.jumbotron.landing {
+  background-color: #7f16c5; /* purple */
+  color: #d6deec;
+  border-style: solid;
+  border-width: 15px;
+  border-color: #407dfd;
+  margin-top: 20px;
 }
 
 .birthday {
@@ -79,15 +89,6 @@
 .about {
   margin: auto;
  }
-
-.jumbotron.y {
-  background-color: #7f16c5; /* purple */
-  color: #ffffff;
-  border-style: solid;
-  border-width: 5px;
-  border-color: #35D04E;
-  margin-top: 20px;
-}
 
 .main {
   background-color: #7f16c5; /* purple */
