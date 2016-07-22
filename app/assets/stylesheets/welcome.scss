@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Landing Page //////////////////
+
 #main-site-title {
   font-family: 'Lobster', cursive;
   font-size: 110px;
@@ -20,6 +22,8 @@
   margin-top: 20px;
 }
 
+// Dashboard and Friendships Views /////////////////////
+
 .birthday {
   background-color: #71D4FF; /* blue */
   height: 16em;
@@ -35,7 +39,7 @@
   margin: 1.7em 1em 2em 1em;
 }
 
-.none {
+.no-items {
   font-size: 16px;
   line-height: 1.5em;
 }
@@ -80,6 +84,8 @@
   border-color: rgba(113, 240, 111, 0.76); /* light green */
 }
 
+// About Page /////////////////////
+
 .intro {
   text-align: justify;
   font-size: 18px;
@@ -105,13 +111,4 @@
   font-size: 17px;
   color: black;
   margin: .7em;
-}
-
-.features-bar li {
-  margin: .5em;
-}
-
-.small {
-  width: 25%;
-  margin: 10px
 }
