@@ -90,29 +90,34 @@ $bright-blue-background: #71D4FF;
 
 // About Page /////////////////////
 
-.intro {
-  text-align: justify;
-  font-size: 18px;
-  margin: 18px 0 5px 0;
-}
-
 .about {
-  margin: auto;
- }
-
-.main {
+  color: #d6deec;
   background-color: #7f16c5; /* purple */
-  color: #FFE552;
   box-sizing: border-box;
-  margin: .7em;
   padding: 15px;
-}
+  border-radius: 20px;
 
-.features-box {
-  background-color: #64D862; /* light green */
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 17px;
-  color: black;
-  margin: .7em;
-}
+  .intro {
+    text-align: justify;
+    font-size: 18px;
+    margin: 18px .7em 5px .7em;
+  }
+
+  h2 {
+    font-family: 'Lobster', cursive;
+    font-size: 70px;
+    font-weight: bold;
+    color: #FFE552; /* yellow */
+    text-shadow: 0px 5px 5px #45286b;
+  }
+
+  .features-box {
+    background-color: $blue-background;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 17px;
+    color: black;
+    margin: .7em;
+    border-radius: 13px;
+  }
+ }
