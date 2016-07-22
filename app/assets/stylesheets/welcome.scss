@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$border-color: #7f16c5; /* purple */
+$blue-background: #a1e1fd;
+$bright-blue-background: #71D4FF;
+
 // Landing Page //////////////////
 
 #main-site-title {
@@ -25,14 +29,14 @@
 // Dashboard and Friendships Views /////////////////////
 
 .birthday {
-  background-color: #71D4FF; /* blue */
+  background-color: $blue-background;
   height: 16em;
   overflow-x: scroll;
   overflow-y: scroll;
   padding: 5px;
   border-style: solid;
   border-width: 5px;
-  border-color: rgba(113, 240, 111, 0.76); /* light green */
+  border-color: $border-color;
  }
 
 .no-bday-div {
@@ -45,43 +49,43 @@
 }
 
 .friend-list {
-  background-color: #71D4FF; /* blue */
+  background-color: $blue-background;
   padding: 3px;
   box-sizing: border-box;
   border-style: solid;
   border-width: 5px;
-  border-color: rgba(113, 240, 111, 0.76); /* light green */
+  border-color: $border-color;
  }
 
 .add-friend {
-  background-color: rgba(113, 240, 111, 0.76); /* light green */
+  background-color: $blue-background;
   padding: 5px 10px;
   box-sizing: border-box;
   border-style: solid;
   border-width: 5px;
-  border-color: #71D4FF; /* blue */
+  border-color: $border-color;
 }
 
 .shop {
-  background-color: rgba(113, 240, 111, 0.76); /* light green */
+  background-color: $blue-background;
   padding: 5px 10px;
   margin: 20px 0px;
   height: 16em;
   overflow-y: scroll;
   border-style: solid;
   border-width: 5px;
-  border-color: #71D4FF; /* blue */
+  border-color: $border-color;
  }
 
- .notes {
-  background-color: #71D4FF; /* blue */
+.notes {
+  background-color: $blue-background;
   padding: 5px 10px;
   margin: 20px 0px;
   height: 18em;
   overflow-y: scroll;
   border-style: solid;
   border-width: 5px;
-  border-color: rgba(113, 240, 111, 0.76); /* light green */
+  border-color: $border-color;
 }
 
 // About Page /////////////////////
