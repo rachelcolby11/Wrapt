@@ -8,19 +8,19 @@
       <ul>
         <% if current_user.name == current_user.email %>
           <li>By default, your name was set to your email address. <%= link_to "Click here to update your name.",edit_user_registration_path %></li>
-        <% end %> 
+        <% end %>
 
         <% unless current_user.user_profile %>
           <li>Don't forget to <%= link_to "fill out your profile", new_user_profile_path %> to help your friends pick great gifts for you! </li>
 
         <% else %>
             <% if current_user.user_profile.birthdate.nil? %>
-              <li>Don't forget to <%= link_to "add your birthday", edit_user_profile_path(current_user) %> so your friends can plan for it! 
+              <li>Don't forget to <%= link_to "add your birthday", edit_user_profile_path(current_user) %> so your friends can plan for it!
                 <br></li>
              <% end %>
         <% end %>
-       </ul> 
-  </div> 
+       </ul>
+  </div>
 <% end %>
 
 <!-- List of Upcoming Birthdays, Add Friend Form
@@ -48,8 +48,8 @@
 
 <!-- Item Count, Shopping List and Notes -->
 <div class="col-md-8">
-  <h4 class="text-center">You have <%= current_user.items.count %> items in your gift list. <%= link_to "Add items to my list.", new_item_path %></h4>
-
+  <h4 class="text-center">You have <%= current_user.items.count %> items in your gift list. <%= current_user.user_profile ? (link_to "Add items to my list.", new_item_path) : (link_to "Start by creating a profile.", new_user_profile_path) %></h4>
+  
   <div class="shop">
     <h4 class="text-center">My Shopping List</h4>
     <%= render partial: 'users/shopping_list', locals: { user: current_user } %>
