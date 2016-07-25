@@ -48,8 +48,8 @@
 
 <!-- Item Count, Shopping List and Notes -->
 <div class="col-md-8">
-  <h4 class="text-center">You have <%= current_user.items.count %> items in your gift list. <%= current_user.user_profile ? (link_to "Add items to my list.", new_item_path) : (link_to "Start by creating a profile.", new_user_profile_path) %></h4>
-  
+  <h4 class="text-center">You have <%= current_user.items.count %> items in your gift list. <%= current_user.user_profile ? (link_to "Add items to my list.", new_item_path(redirect: true)) : (link_to "Start by creating a profile.", new_user_profile_path) %></h4>
+
   <div class="shop">
     <h4 class="text-center">My Shopping List</h4>
     <%= render partial: 'users/shopping_list', locals: { user: current_user } %>
