@@ -17,7 +17,7 @@
           <li><%= link_to "About", about_path %></li>
           <li><%= link_to "Friends", friendships_path %></li>
               <% if current_user.user_profile %>
-                  <li><%= link_to "My Profile", user_path(current_user) %></li>
+                  <li><%= link_to "My Gift List", user_path(current_user) %></li>
               <% end %>
          <% else %>
           <li><%= link_to "Home", root_path %></li>
