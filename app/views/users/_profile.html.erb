@@ -1,5 +1,5 @@
  <p>
-    <strong>Birthday:</strong>
+    <span class="profile-label">Birthday:</span>
       <% if user.user_profile.birthdate %>
         <%= user.user_profile.birthdate.strftime("%B %d") %>
       <% else %>
@@ -8,22 +8,21 @@
   </p>
 
   <p>
-    <strong>Favorite color:</strong>
+    <span class="profile-label">Favorite color:</span>
     <%= user.user_profile.favorite_color %>
   </p>
 
   <p>
-    <strong>Favorite small gifts:</strong>
+    <span class="profile-label">Favorite small gifts:</span>
     <%= user.user_profile.favorite_small_gifts %>
   </p>
 
   <p>
-    <strong>Desired gift cards:</strong>
+    <span class="profile-label">Desired gift cards:</span>
     <%= user.user_profile.desired_gift_cards %>
   </p>
 
   <p>
-    <strong>Notes:</strong>
+    <span class="profile-label">Notes:</span>
     <%= user.user_profile.notes %>
   </p>
- 
