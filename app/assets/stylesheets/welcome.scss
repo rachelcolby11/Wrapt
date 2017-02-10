@@ -91,11 +91,14 @@ $bright-blue-background: #71D4FF;
 // About Page /////////////////////
 
 .about {
-  color: #d6deec;
-  background-color: #7f16c5; /* purple */
-  box-sizing: border-box;
+  background-color: $blue-background;
+  border-style: solid;
+  color: black;
+  border-width: 15px;
+  border-color: #7f16c5; /* purple */
+  margin-top: 20px;
   padding: 15px;
-  border-radius: 20px;
+  box-sizing: border-box;
 
   .intro {
     text-align: justify;
@@ -107,17 +110,16 @@ $bright-blue-background: #71D4FF;
     font-family: 'Lobster', cursive;
     font-size: 70px;
     font-weight: bold;
-    color: #FFE552; /* yellow */
-    text-shadow: 0px 5px 5px #45286b;
+    color: #407dfd;
   }
 
   .features-box {
-    background-color: $blue-background;
     padding: 15px;
-    box-sizing: border-box;
     font-size: 17px;
     color: black;
     margin: .7em;
-    border-radius: 13px;
+    border: 5px solid #407dfd;
+    border-radius: 6px;
+    box-sizing: border-box;
   }
  }
