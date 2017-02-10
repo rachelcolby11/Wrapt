@@ -100,26 +100,26 @@ $bright-blue-background: #71D4FF;
   padding: 15px;
   box-sizing: border-box;
 
-  .intro {
-    text-align: justify;
-    font-size: 18px;
-    margin: 18px .7em 5px .7em;
-  }
-
   h2 {
     font-family: 'Lobster', cursive;
     font-size: 70px;
     font-weight: bold;
     color: #407dfd;
   }
+}
 
-  .features-box {
-    padding: 15px;
-    font-size: 17px;
-    color: black;
-    margin: .7em;
-    border: 5px solid #407dfd;
-    border-radius: 6px;
-    box-sizing: border-box;
-  }
- }
+.intro {
+  text-align: justify;
+  font-size: 18px;
+  margin: 18px .7em 5px .7em;
+}
+
+.features-box {
+  padding: 15px;
+  font-size: 17px;
+  color: black;
+  margin: .7em;
+  border: 5px solid #407dfd;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
